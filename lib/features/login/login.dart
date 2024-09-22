@@ -5,6 +5,11 @@ class LogInScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(body: Text('log in screen tttttt'),);
+    return Scaffold(
+      body: Container(
+        color: Colors.blue,
+        child: const Text('log in screen'),
+      ),
+    );
   }
 }
