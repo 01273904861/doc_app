@@ -5,6 +5,6 @@ class LogInScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(body: Text('log in screen ffffvffggffgffffvvvv'),);
+    return Scaffold(body: Text('log in screen t'),);
   }
 }
