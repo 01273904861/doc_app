@@ -34,6 +34,7 @@ class OnBoardingScreen extends StatelessWidget {
             SizedBox(height: 30.h,),
             const GetStartedButton(),
             SizedBox(height: 30.h,),
+           const Text('abdullah mohamed ' ,textAlign: TextAlign.center,)
 
           ],
         ),

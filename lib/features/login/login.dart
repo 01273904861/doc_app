@@ -6,6 +6,7 @@ class LogInScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(body: Text('log in screen t', style:AppTextstyles.font32BlueW700));
+    return Scaffold(
+        body: Text('log in screen t', style: AppTextstyles.font32BlueW700));
   }
 }
