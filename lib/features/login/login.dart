@@ -12,6 +12,7 @@ class LogInScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
     return Scaffold(
       body: SafeArea(
         child: Padding(
@@ -54,5 +55,6 @@ class LogInScreen extends StatelessWidget {
         ),
       ),
     );
+
   }
 }
