@@ -26,15 +26,17 @@ class OnBoardingScreen extends StatelessWidget {
             Text(
               'Manage and schedule all of your medical\n appointments easily with Docdoc\n to get a new experience.',
               textAlign: TextAlign.center,
-              style: AppTextstyles.font13GreyW400.copyWith(
+              style: AppTextstyles.font13Greyregular.copyWith(
                 height: 1.4.h,
               ),
-              
             ),
-            SizedBox(height: 30.h,),
+            SizedBox(
+              height: 30.h,
+            ),
             const GetStartedButton(),
-            SizedBox(height: 30.h,),
-
+            SizedBox(
+              height: 30.h,
+            ),
           ],
         ),
       )),
