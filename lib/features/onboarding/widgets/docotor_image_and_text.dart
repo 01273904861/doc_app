@@ -16,6 +16,7 @@ class DoctorImageAndText extends StatelessWidget {
         children: [
           Image.asset(AppImages.onBoardingBackground),
           Container(
+            
             foregroundDecoration: BoxDecoration(
               gradient: LinearGradient(
                 colors: [
