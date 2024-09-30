@@ -60,7 +60,6 @@ dependencies:
   flutter_screenutil: ^5.9.3
   #An SVG rendering and widget library for Flutter, which allows painting and displaying Scalable Vector Graphics 1.1 files.
 
-
   flutter_localization: ^0.2.2
 
   flutter:
@@ -70,8 +69,12 @@ dependencies:
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.6
   flutter_svg: ^2.0.10+1
+
+  
+
   shared_preferences_android: ^2.3.2
 
+  build_runner: ^2.4.12
 dev_dependencies:
   #Automatically generate code for converting
   #to and from JSON by annotating Dart classes
