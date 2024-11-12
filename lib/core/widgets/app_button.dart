@@ -11,7 +11,7 @@ class AppButton extends StatelessWidget {
       this.verticalPadding,
       this.horizontalPadding,
       this.backgroungColor,
-      this.titleStyle, this.width, this.height});
+      this.titleStyle, this.width, this.height, this.onPressed});
   final String title;
   final double? borderRadius;
   final double? verticalPadding;
@@ -20,10 +20,11 @@ class AppButton extends StatelessWidget {
   final TextStyle? titleStyle;
  final double? width;
  final double? height;
+ final  void Function()? onPressed;
   @override
   Widget build(BuildContext context) {
     return TextButton(
-        onPressed: () {},
+        onPressed: onPressed,
         style: ButtonStyle(
           shape: WidgetStateProperty.all(
             RoundedRectangleBorder(
