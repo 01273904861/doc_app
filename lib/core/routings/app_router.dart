@@ -2,7 +2,7 @@ import 'package:appoment_app/core/di/dependency_injection.dart';
 import 'package:appoment_app/core/routings/routes.dart';
 import 'package:appoment_app/features/home/views/home_view.dart';
 import 'package:appoment_app/features/login/logic/cubit/login_cubit.dart';
-import 'package:appoment_app/features/login/login_view.dart';
+import 'package:appoment_app/features/login/login_screen.dart';
 import 'package:appoment_app/features/onboarding/onboarding.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
