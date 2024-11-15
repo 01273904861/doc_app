@@ -14,7 +14,7 @@ class _ApiService implements ApiService {
     this.baseUrl,
     this.errorLogger,
   }) {
-    baseUrl ??= 'https://vcare.integration25.com/api';
+    baseUrl ??= 'https://vcare.integration25.com/api/';
   }
 
   final Dio _dio;
@@ -24,20 +24,20 @@ class _ApiService implements ApiService {
   final ParseErrorLogger? errorLogger;
 
   @override
-  Future<LogInResponse> signIn(LogInBodyRequest logInBodyRequest) async {
+  Future<LoginResponse> signIn(LoginRequestBody logInBodyRequest) async {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     _data.addAll(logInBodyRequest.toJson());
-    final _options = _setStreamType<LogInResponse>(Options(
+    final _options = _setStreamType<LoginResponse>(Options(
       method: 'POST',
       headers: _headers,
       extra: _extra,
     )
         .compose(
           _dio.options,
-          '/auth/login',
+          'auth/login',
           queryParameters: queryParameters,
           data: _data,
         )
@@ -47,9 +47,9 @@ class _ApiService implements ApiService {
           baseUrl,
         )));
     final _result = await _dio.fetch<Map<String, dynamic>>(_options);
-    late LogInResponse _value;
+    late LoginResponse _value;
     try {
-      _value = LogInResponse.fromJson(_result.data!);
+      _value = LoginResponse.fromJson(_result.data!);
     } on Object catch (e, s) {
       errorLogger?.logError(e, s, _options);
       rethrow;

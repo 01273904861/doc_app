@@ -1,8 +1,8 @@
 import 'package:appoment_app/core/helper/spacing.dart';
 import 'package:appoment_app/core/theming/app_textstyles.dart';
-import 'package:appoment_app/core/widgets/app_button.dart';
 import 'package:appoment_app/features/login/ui/widgets/already_have_an_account__and_sign_up_text.dart';
-import 'package:appoment_app/features/login/ui/widgets/custom_form.dart';
+import 'package:appoment_app/features/login/ui/widgets/custom_log_in_form.dart';
+import 'package:appoment_app/features/login/ui/widgets/login_bloc_listener.dart';
 import 'package:appoment_app/features/login/ui/widgets/terms_and_condtions_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -12,7 +12,6 @@ class LogInScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-
     return Scaffold(
       body: SafeArea(
         child: Padding(
@@ -31,30 +30,18 @@ class LogInScreen extends StatelessWidget {
                   style: AppTextstyles.font14GreyRegular,
                 ),
                 verticalSpace(30),
-                const CustomForm(),
-                verticalSpace(30),
-                Align(
-                  alignment: Alignment.centerRight,
-                  child: Text(
-                    'forgot password?',
-                    style: AppTextstyles.font12BlueRegular,
-                  ),
-                ),
-                verticalSpace(50),
-                const AppButton(
-                  title: 'login',
-                ),
+                const CustomLogInForm(),
                 verticalSpace(30),
                 const TermsAndConditionsText(),
                 verticalSpace(50),
                 const Center(child: AlreadyHaveanAcountAndSignUpText()),
                 verticalSpace(50),
+                const LoginBlocListener(),
               ],
             ),
           ),
         ),
       ),
     );
-
   }
 }
