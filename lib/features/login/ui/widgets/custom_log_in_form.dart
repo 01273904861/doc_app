@@ -47,63 +47,71 @@ class _CustomLogInFormState extends State<CustomLogInForm> {
   Widget build(BuildContext context) {
     final loginCubit = context.read<LoginCubit>();
 
-    return  Form(
-            key: loginCubit.signInFormKey,
-            child: Column(
-              children: [
-               
-                CustomTextFormField(
-                  controller: loginCubit.emailController,
-                  hintText: 'email',
+    return Form(
+        key: loginCubit.signInFormKey,
+        child: Column(
+          children: [
+            CustomTextFormField(
+              checkValidation: (String? value) {
+                if (!AppRegExp().isValidEmail(value) ||
+                    value == null ||
+                    value.isEmpty) {
+                  return 'enter valid email';
+                } else {
+                  return null;
+                }
+              },
+              controller: loginCubit.emailController,
+              hintText: 'email',
+            ),
+            verticalSpace(20),
+            CustomTextFormField(
+              controller: loginCubit.passwordController,
+              hintText: 'password',
+              suffixIcon: GestureDetector(
+                onTap: () {
+                  isObsecure = !isObsecure;
+                  setState(() {});
+                },
+                child: Icon(
+                  isObsecure ? Icons.visibility_off : Icons.visibility,
                 ),
-                verticalSpace(20),
-                CustomTextFormField(
-                  controller: loginCubit.passwordController,
-                  hintText: 'password',
-                  suffixIcon: GestureDetector(
-                    onTap: () {
-                      isObsecure = !isObsecure;
-                      setState(() {});
-                    },
-                    child: Icon(
-                      isObsecure ? Icons.visibility_off : Icons.visibility,
-                    ),
-                  ),
-                  obscureText: isObsecure,
-                ),
-                verticalSpace(30),
-                Align(
-                  alignment: Alignment.centerRight,
-                  child: Text(
-                    'forgot password?',
-                    style: AppTextstyles.font12BlueRegular,
-                  ),
-                ),
-                verticalSpace(10),
-                PasswordValidations(
-                  hasLowerCase: hasLowerCase,
-                  has8Chars: has8Chars,
-                  hasDigits: hasDigits,
-                  hasSpecialCharcters: hasSpecialCharcters,
-                  hasUpperCase: hasUpperCase,
-                ),
-                verticalSpace(50),
-                AppButton(
-                  onPressed: () {
-                    if (loginCubit.signInFormKey.currentState!.validate()) {
-                      loginCubit.emitLoginStates();
-                    }
-                  },
-                  title: 'log in',
-                ),
-              ],
-            ));
+              ),
+              obscureText: isObsecure,
+            ),
+            verticalSpace(30),
+            Align(
+              alignment: Alignment.centerRight,
+              child: Text(
+                'forgot password?',
+                style: AppTextstyles.font12BlueRegular,
+              ),
+            ),
+            verticalSpace(10),
+            PasswordValidations(
+              hasLowerCase: hasLowerCase,
+              has8Chars: has8Chars,
+              hasDigits: hasDigits,
+              hasSpecialCharcters: hasSpecialCharcters,
+              hasUpperCase: hasUpperCase,
+            ),
+            verticalSpace(50),
+            AppButton(
+              onPressed: () {
+                if (loginCubit.signInFormKey.currentState!.validate()) {
+                  loginCubit.emitLoginStates();
+                }
+              },
+              title: 'log in',
+            ),
+          ],
+        ));
   }
+
   @override
   void dispose() {
     passwordController.dispose();
-   
+
     super.dispose();
   }
 }
-

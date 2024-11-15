@@ -2,6 +2,9 @@ class AppRegExp {
   bool hasLowerCase(value) {
     return RegExp(r'[a-z]').hasMatch(value);
   }
+  bool isValidEmail(value){
+    return RegExp( r'^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$').hasMatch(value);
+  }
 
   bool hasUpperCase(value) {
     return RegExp(r'[A-Z]').hasMatch(value);
