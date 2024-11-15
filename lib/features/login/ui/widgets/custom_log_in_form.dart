@@ -99,5 +99,11 @@ class _CustomLogInFormState extends State<CustomLogInForm> {
               ],
             ));
   }
+  @override
+  void dispose() {
+    passwordController.dispose();
+   
+    super.dispose();
+  }
 }
 

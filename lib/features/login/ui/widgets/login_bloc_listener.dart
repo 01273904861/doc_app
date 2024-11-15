@@ -25,6 +25,8 @@ class LoginBlocListener extends StatelessWidget {
                   content: Text('login successful'),
                 );
               });
+          context.pop();
+
           context.pushNamed(Routes.homeView);
         }, failure: (failureMessage) {
           setupErrorState(context, failureMessage);
@@ -32,11 +34,8 @@ class LoginBlocListener extends StatelessWidget {
           return showDialog(
               context: context,
               builder: (context) {
-                return AlertDialog(
-                  content: SizedBox(
-                      width: 200.w,
-                      height: 200.h,
-                      child: const Center(child: CircularProgressIndicator())),
+                return const Center(
+                  child: CircularProgressIndicator(),
                 );
               });
         });
