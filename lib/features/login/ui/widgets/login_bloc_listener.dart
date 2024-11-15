@@ -5,7 +5,6 @@ import 'package:appoment_app/features/login/logic/cubit/login_cubit.dart';
 import 'package:appoment_app/features/login/logic/cubit/login_states.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class LoginBlocListener extends StatelessWidget {
   const LoginBlocListener({super.key});
