@@ -25,7 +25,19 @@ class _CustomSignUpFormState extends State<CustomSignUpForm> {
         child: Column(
       children: [
         const CustomTextFormField(
+          hintText: 'name',
+        ),
+        verticalSpace(20),
+        const CustomTextFormField(
           hintText: 'email',
+        ),
+        verticalSpace(20),
+        const CustomTextFormField(
+          hintText: 'phone',
+        ),
+        verticalSpace(20),
+        const CustomTextFormField(
+          hintText: 'gender',
         ),
         verticalSpace(20),
         CustomTextFormField(
@@ -42,6 +54,10 @@ class _CustomSignUpFormState extends State<CustomSignUpForm> {
           obscureText: isObsecure,
         ),
         verticalSpace(30),
+        const CustomTextFormField(
+          hintText: 'confirm password',
+        ),
+        verticalSpace(20),
         Align(
           alignment: Alignment.centerRight,
           child: Text(

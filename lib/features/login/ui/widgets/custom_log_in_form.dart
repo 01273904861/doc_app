@@ -52,15 +52,7 @@ class _CustomLogInFormState extends State<CustomLogInForm> {
         child: Column(
           children: [
             CustomTextFormField(
-              checkValidation: (String? value) {
-                if (!AppRegExp().isValidEmail(value) ||
-                    value == null ||
-                    value.isEmpty) {
-                  return 'enter valid email';
-                } else {
-                  return null;
-                }
-              },
+              checkValidation:  checkEmailValidation ,
               controller: loginCubit.emailController,
               hintText: 'email',
             ),
@@ -114,4 +106,12 @@ class _CustomLogInFormState extends State<CustomLogInForm> {
 
     super.dispose();
   }
+   String? checkEmailValidation(value){
+    if( !AppRegExp().isValidEmail(value)||value == null || value?.isEmpty ?? true ){
+      return 'enter valid email';
+    }  
+    return null;
+  } 
 }
+
+

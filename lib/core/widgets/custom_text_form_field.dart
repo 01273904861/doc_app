@@ -1,4 +1,3 @@
-import 'package:appoment_app/core/helper/app_reg_exp.dart';
 import 'package:appoment_app/core/theming/app_colors.dart';
 import 'package:appoment_app/core/theming/app_textstyles.dart';
 import 'package:flutter/material.dart';
@@ -69,7 +68,7 @@ class CustomTextFormField extends StatelessWidget {
 
   String? defaultCheckValidation(value) {
     if ( value == null || value?.isEmpty ?? true ) {
-      return 'enter valid email';
+      return 'this field is required';
     } else {
       return null;
     }
