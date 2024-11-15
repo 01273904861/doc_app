@@ -74,7 +74,7 @@ extension DataSourceExtension on DataSource {
         return ApiErrorModel(
             code: ResponseCode.NO_CONTENT, message: ResponseMessage.NO_CONTENT);
       case DataSource.BAD_REQUEST:
-        return ApiErrorModel( 
+        return ApiErrorModel(
             code: ResponseCode.BAD_REQUEST,
             message: ResponseMessage.BAD_REQUEST);
       case DataSource.FORBIDDEN:

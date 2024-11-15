@@ -1,4 +1,5 @@
 import 'package:appoment_app/core/helper/extension.dart';
+import 'package:appoment_app/core/routings/routes.dart';
 import 'package:appoment_app/core/theming/app_textstyles.dart';
 import 'package:appoment_app/features/login/logic/cubit/login_cubit.dart';
 import 'package:appoment_app/features/login/logic/cubit/login_states.dart';
@@ -17,13 +18,14 @@ class LoginBlocListener extends StatelessWidget {
       listener: (context, state) {
         state.whenOrNull(success: (loginResponse) {
           context.pop();
-          return showDialog(
+          showDialog(
               context: context,
               builder: (context) {
                 return const AlertDialog(
                   content: Text('login successful'),
                 );
               });
+          context.pushNamed(Routes.homeView);
         }, failure: (failureMessage) {
           setupErrorState(context, failureMessage);
         }, loading: () {

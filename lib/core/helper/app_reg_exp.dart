@@ -14,7 +14,8 @@ class AppRegExp {
   bool hasSpecialCharacters(value) {
     return RegExp(r'[!@#$%^&*(),.?":{}|<>]').hasMatch(value);
   }
-  bool has8Chars( value){
- return RegExp(r'^(?=.{8,})').hasMatch(value);
-}
+
+  bool has8Chars(value) {
+    return RegExp(r'^(?=.{8,})').hasMatch(value);
+  }
 }

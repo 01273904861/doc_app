@@ -2,8 +2,7 @@ import 'package:dio/dio.dart';
 import 'package:pretty_dio_logger/pretty_dio_logger.dart';
 
 class DioFactory {
-
-  /// to prevent take an object 
+  /// to prevent take an object
   DioFactory._();
   static Dio? dio;
   static Duration timeOut = const Duration(seconds: 30);
@@ -20,6 +19,7 @@ class DioFactory {
     }
     return dio!;
   }
+
   static void addDioInterceptors() {
     //?. If the object is null, the expression will return null without throwing an error.
     //If dio is null, the expression does nothing (no logging interceptor is added), and no exception is thrown.
