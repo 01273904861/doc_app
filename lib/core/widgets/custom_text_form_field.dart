@@ -19,7 +19,7 @@ class CustomTextFormField extends StatelessWidget {
       this.obscureText,
       this.verticalPadding,
       this.borderRadius,
-      this.controller});
+      this.controller, this.checkValidation});
   final String hintText;
   final Widget? suffixIcon;
   final Color? enabledBorderColor;
@@ -34,11 +34,12 @@ class CustomTextFormField extends StatelessWidget {
   final bool? obscureText;
   final double? borderRadius;
   final TextEditingController? controller;
+    final String? Function(String?)? checkValidation;
   @override
   Widget build(BuildContext context) {
     return TextFormField(
       controller: controller,
-      validator: checkValidation,
+      validator: checkValidation ?? defaultCheckValidation,
       decoration: InputDecoration(
         enabledBorder: OutlineInputBorder(
           borderSide:
@@ -65,33 +66,14 @@ class CustomTextFormField extends StatelessWidget {
     );
   }
 
-  String? checkValidation(value) {
-  //   if (hintText.toLowerCase() == 'password') {
-  // final lowerReg = RegExp(r'[a-z]');
-  // final upperCaseReg = RegExp(r'[A-Z]');
-  // final digitReg = RegExp(r'\d');
-  // final specialCaractersReg = RegExp(r'[!@#$%^&*(),.?":{}|<>]');
-
-  //     bool hasLower = lowerReg.hasMatch(value!);
-  //     bool hasUpper = lowerReg.hasMatch(value!);
-  //     bool hasDigit = digitReg.hasMatch(value);
-  //     bool hasSpecialCharacters = specialCaractersReg.hasMatch(value);
-  //     if (value.length < 8) {
-  //       return 'password must be contains 8 letters at least';
-  //     } else if (!hasDigit) {
-  //       return 'password must be contains at least one number';
-  //     } else if (!hasLower) {
-  //       return 'password must be contains at least one lower and capital letter';
-  //     } else if (!hasSpecialCharacters) {
-  //       return 'password must be contains at least one symbol';
-  //     }
-  //   }
-    if (value?.isEmpty ?? true) {
+  String? defaultCheckValidation(value) {
+    if ( value == null || value?.isEmpty ?? true ) {
       return 'this field is required';
     } else {
       return null;
     }
   }
+
 
   OutlineInputBorder customErrorBorder() {
     return const OutlineInputBorder(
