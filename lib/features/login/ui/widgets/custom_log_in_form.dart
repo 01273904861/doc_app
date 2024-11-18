@@ -1,4 +1,5 @@
 import 'package:appoment_app/core/helper/app_reg_exp.dart';
+import 'package:appoment_app/core/helper/functions.dart';
 import 'package:appoment_app/core/helper/spacing.dart';
 import 'package:appoment_app/core/theming/app_textstyles.dart';
 import 'package:appoment_app/core/widgets/app_button.dart';
@@ -52,7 +53,7 @@ class _CustomLogInFormState extends State<CustomLogInForm> {
         child: Column(
           children: [
             CustomTextFormField(
-              checkValidation:  checkEmailValidation ,
+              checkValidation: AppFunctions.checkEmailValidation ,
               controller: loginCubit.emailController,
               hintText: 'email',
             ),
@@ -106,12 +107,7 @@ class _CustomLogInFormState extends State<CustomLogInForm> {
 
     super.dispose();
   }
-   String? checkEmailValidation(value){
-    if( !AppRegExp().isValidEmail(value)||value == null || value?.isEmpty ?? true ){
-      return 'enter valid email';
-    }  
-    return null;
-  } 
+ 
 }
 
 

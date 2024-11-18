@@ -4,6 +4,7 @@ import 'package:appoment_app/features/home/views/home_view.dart';
 import 'package:appoment_app/features/login/logic/cubit/login_cubit.dart';
 import 'package:appoment_app/features/login/login_screen.dart';
 import 'package:appoment_app/features/onboarding/onboarding.dart';
+import 'package:appoment_app/features/sign%20up/logic/cubit/cubit/sign_up_cubit.dart';
 import 'package:appoment_app/features/sign%20up/ui/sign_up_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -23,10 +24,10 @@ class AppRouter {
             child: const LogInScreen(),
           );
         });
-          case Routes.signUpScreen:
+      case Routes.signUpScreen:
         return MaterialPageRoute(builder: (_) {
           return BlocProvider(
-            create: (context) => getIt<LoginCubit>(),
+            create: (context) => getIt<SignUpCubit>(),
             child: const SignUpScreen(),
           );
         });
