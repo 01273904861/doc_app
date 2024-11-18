@@ -1,27 +1,26 @@
 import 'package:appoment_app/core/helper/extension.dart';
 import 'package:appoment_app/core/routings/routes.dart';
 import 'package:appoment_app/core/theming/app_textstyles.dart';
-import 'package:appoment_app/features/login/logic/cubit/login_cubit.dart';
-import 'package:appoment_app/features/login/logic/cubit/login_states.dart';
+import 'package:appoment_app/features/sign%20up/logic/cubit/cubit/sign_up_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-class LoginBlocListener extends StatelessWidget {
-  const LoginBlocListener({super.key});
+class SignUpBlocListener extends StatelessWidget {
+  const SignUpBlocListener({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return BlocListener<LoginCubit, LoginStates>(
+    return BlocListener<SignUpCubit, SignUpState>(
       listenWhen: (previous, current) =>
-          current is LoginLoading || current is LoginSuccess || current is LoginFailure,
+          current is SignUpLoading || current is SignUpSuccess || current is SignUpFailure,
       listener: (context, state) {
-        state.whenOrNull(success: (loginResponse) {
+        state.whenOrNull(success: (signUpResponse) {
           context.pop();
           showDialog(
               context: context,
               builder: (context) {
                 return const AlertDialog(
-                  content: Text('login successful'),
+                  content: Text('sign up  successful'),
                 );
               });
           context.pop();

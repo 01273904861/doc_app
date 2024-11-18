@@ -1,4 +1,3 @@
-import 'dart:developer';
 
 import 'package:appoment_app/core/helper/functions.dart';
 import 'package:appoment_app/core/helper/spacing.dart';
