@@ -1,11 +1,12 @@
-
-import 'package:appoment_app/core/helper/functions.dart';
+import 'package:appoment_app/core/helper/app_reg_exp.dart';
+import 'package:appoment_app/core/helper/app_functions.dart';
 import 'package:appoment_app/core/helper/spacing.dart';
 import 'package:appoment_app/core/theming/app_textstyles.dart';
 import 'package:appoment_app/core/widgets/app_button.dart';
 import 'package:appoment_app/core/widgets/custom_text_form_field.dart';
 import 'package:appoment_app/features/login/ui/widgets/password_validations.dart';
 import 'package:appoment_app/features/sign%20up/logic/cubit/cubit/sign_up_cubit.dart';
+import 'package:appoment_app/features/sign%20up/ui/widgets/drop_down_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -19,11 +20,32 @@ class CustomSignUpForm extends StatefulWidget {
 class _CustomSignUpFormState extends State<CustomSignUpForm> {
   bool isObsecure = false;
   bool isObsecure2 = false;
+
   bool hasLowerCase = false;
   bool hasUpperCase = false;
   bool hasDigits = false;
-  bool hasSpecialCharcters = false;
+  bool hasSpecialCharacters = false;
   bool has8Chars = false;
+
+  late TextEditingController passwordController;
+  @override
+  void initState() {
+    passwordController = context.read<SignUpCubit>().passwordController;
+    checkPasswordValidations();
+    super.initState();
+  }
+
+  void checkPasswordValidations() {
+    passwordController.addListener(() {
+      has8Chars = AppRegExp().has8Chars(passwordController.text);
+      hasDigits = AppRegExp().hasDigits(passwordController.text);
+      hasLowerCase = AppRegExp().hasLowerCase(passwordController.text);
+      hasUpperCase = AppRegExp().hasUpperCase(passwordController.text);
+      hasSpecialCharacters =
+          AppRegExp().hasSpecialCharacters(passwordController.text);
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     final signUp = context.read<SignUpCubit>();
@@ -39,18 +61,16 @@ class _CustomSignUpFormState extends State<CustomSignUpForm> {
             CustomTextFormField(
               controller: signUp.emailController,
               hintText: 'email',
-              checkValidation: AppFunctions.checkEmailValidation,
+              checkValidation: AppFunctions().checkEmailValidation,
             ),
             verticalSpace(20),
             CustomTextFormField(
+              checkValidation: AppFunctions().checkPhoneNumberValidation,
               controller: signUp.phoneController,
               hintText: 'phone',
             ),
             verticalSpace(20),
-            CustomTextFormField(
-              controller: signUp.genderController,
-              hintText: 'gender',
-            ),
+            const CustomDropdownButton(),
             verticalSpace(20),
             CustomTextFormField(
               controller: signUp.passwordController,
@@ -92,19 +112,25 @@ class _CustomSignUpFormState extends State<CustomSignUpForm> {
               hasLowerCase: hasLowerCase,
               has8Chars: has8Chars,
               hasDigits: hasDigits,
-              hasSpecialCharcters: hasSpecialCharcters,
+              hasSpecialCharcters: hasSpecialCharacters,
               hasUpperCase: hasUpperCase,
             ),
             verticalSpace(50),
             AppButton(
               onPressed: () {
                 if (signUp.signUpFormKey.currentState!.validate()) {
-                 signUp.emitSignUpSates();
+                  signUp.emitSignUpSates();
                 }
               },
               title: 'Create Account',
             ),
           ],
         ));
+  }
+
+  @override
+  void dispose() {
+    passwordController.dispose();
+    super.dispose();
   }
 }

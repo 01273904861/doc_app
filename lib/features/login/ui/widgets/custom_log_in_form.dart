@@ -1,5 +1,5 @@
 import 'package:appoment_app/core/helper/app_reg_exp.dart';
-import 'package:appoment_app/core/helper/functions.dart';
+import 'package:appoment_app/core/helper/app_functions.dart';
 import 'package:appoment_app/core/helper/spacing.dart';
 import 'package:appoment_app/core/theming/app_textstyles.dart';
 import 'package:appoment_app/core/widgets/app_button.dart';
@@ -53,7 +53,7 @@ class _CustomLogInFormState extends State<CustomLogInForm> {
         child: Column(
           children: [
             CustomTextFormField(
-              checkValidation: AppFunctions.checkEmailValidation ,
+              checkValidation: AppFunctions().checkEmailValidation,
               controller: loginCubit.emailController,
               hintText: 'email',
             ),
@@ -100,14 +100,9 @@ class _CustomLogInFormState extends State<CustomLogInForm> {
           ],
         ));
   }
-
   @override
   void dispose() {
     passwordController.dispose();
-
     super.dispose();
   }
- 
 }
-
-

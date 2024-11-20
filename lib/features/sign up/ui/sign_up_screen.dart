@@ -1,4 +1,6 @@
+import 'package:appoment_app/core/helper/extension.dart';
 import 'package:appoment_app/core/helper/spacing.dart';
+import 'package:appoment_app/core/routings/routes.dart';
 import 'package:appoment_app/core/theming/app_textstyles.dart';
 import 'package:appoment_app/features/login/ui/widgets/already_have_an_account__and_sign_up_text.dart';
 import 'package:appoment_app/features/login/ui/widgets/terms_and_condtions_text.dart';
@@ -34,8 +36,11 @@ class SignUpScreen extends StatelessWidget {
                 verticalSpace(30),
                 const TermsAndConditionsText(),
                 verticalSpace(50),
-                const Center(
+                 Center(
                     child: AlreadyHaveanAcountAndSignUpText(
+                      onTap: (){
+                        context.pushNamedAndRemoveUntile(Routes.loginScreen,predicate: (route) => false,);
+                      },
                   text1: 'Already have an account yet ? ',
                   text2: 'Sign In',
                 )),

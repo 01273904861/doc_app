@@ -14,9 +14,9 @@ void setUpGetIt() {
   getIt.registerLazySingleton<ApiService>(() => ApiService(dio));
   //   login
   getIt.registerLazySingleton<LoginRepo>(() => LoginRepo(apiService: getIt()));
-  getIt.registerLazySingleton<LoginCubit>(() => LoginCubit(getIt()));
+  getIt.registerFactory<LoginCubit>(() => LoginCubit(getIt()));
   //sign up 
 
   getIt.registerLazySingleton<SignUpRepo>(()=>SignUpRepo(apiService: getIt()));
-  getIt.registerLazySingleton<SignUpCubit>(()=>SignUpCubit(getIt()));
+  getIt.registerFactory<SignUpCubit>(()=>SignUpCubit(getIt()));
 }

@@ -39,7 +39,7 @@ class LogInScreen extends StatelessWidget {
                 Center(
                     child: AlreadyHaveanAcountAndSignUpText(
                   onTap: () {
-                    context.pushNamed(Routes.signUpScreen);
+                    context.pushNamedAndRemoveUntile(Routes.signUpScreen, predicate: (route) => false,);
                   },
                   text1: 'Already have an account yet ? ',
                   text2: 'Sign UP',
