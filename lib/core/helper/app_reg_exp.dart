@@ -21,4 +21,7 @@ class AppRegExp {
   bool has8Chars(value) {
     return RegExp(r'^(?=.{8,})').hasMatch(value);
   }
+  bool isPhoneNumber(value){
+    return RegExp(r'^(010|011|012|015)[0-9]{8}$').hasMatch(value); 
+  }
 }

@@ -17,7 +17,9 @@ class LoginCubit extends Cubit<LoginStates> {
         email: emailController.text, password: passwordController.text));
 
     response.when(success: (loginResponse) async {
+     
       emit(LoginStates.success(loginResponse));
+     
     }, failure: (error) {
       emit(
         LoginStates.failure(errorMessage: error.apiErrorModel.message ?? ''),
