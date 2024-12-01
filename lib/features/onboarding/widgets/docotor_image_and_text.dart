@@ -16,6 +16,7 @@ class DoctorImageAndText extends StatelessWidget {
         children: [
           Image.asset(AppImages.onBoardingBackground),
           Container(
+            
             foregroundDecoration: BoxDecoration(
               gradient: LinearGradient(
                 colors: [
@@ -34,7 +35,7 @@ class DoctorImageAndText extends StatelessWidget {
             child: Text(
               'Best Doctor \nAppointment App',
               textAlign: TextAlign.center,
-              style: AppTextstyles.font32BlueW700,
+              style: AppTextstyles.font32BlueBold,
             ),
           )
         ],
