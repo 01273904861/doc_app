@@ -14,12 +14,10 @@ class SignUpResponseModel {
 
 @JsonSerializable()
 class Data {
-  
-
   final String? token;
   @JsonKey(name: 'username')
   final String? userName;
 
-  Data( {this.token, this.userName});
-      factory Data.fromJson(Map<String  , dynamic>json)=>_$DataFromJson(json);
+  Data({this.token, this.userName});
+  factory Data.fromJson(Map<String, dynamic> json) => _$DataFromJson(json);
 }
