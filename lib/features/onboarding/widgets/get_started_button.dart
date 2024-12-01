@@ -1,3 +1,5 @@
+import 'package:appoment_app/core/helper/extension.dart';
+import 'package:appoment_app/core/routings/routes.dart';
 import 'package:appoment_app/core/theming/app_colors.dart';
 import 'package:appoment_app/core/theming/app_textstyles.dart';
 import 'package:flutter/material.dart';
@@ -20,14 +22,13 @@ class GetStartedButton extends StatelessWidget {
             WidgetStateProperty.all(AppColors.mainBlue), // Corrected this
       ),
       onPressed: () {
-        // Add functionality here
+        context.pushNamed(Routes.loginScreen);
       },
       child: Text(
         'Get started',
         style: AppTextstyles
-            .font16WhitekW600, // Assuming this is defined in AppTextstyles
+            .font16WhitekSemiBold, // Assuming this is defined in AppTextstyles
       ),
     );
-    
   }
 }

@@ -18,7 +18,7 @@ class OnBoardingLogo extends StatelessWidget {
         ),
         Text(
           'Docdoc',
-          style: AppTextstyles.font20BlackW500,
+          style: AppTextstyles.font20BlackMeduim,
         )
       ],
     );
