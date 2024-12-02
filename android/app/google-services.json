@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "605776162284",
+    "project_id": "appointment-app-be2b6",
+    "storage_bucket": "appointment-app-be2b6.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:605776162284:android:5be9572dabedc9b6e0a4c9",
+        "android_client_info": {
+          "package_name": "com.example.app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB3AwaUdQCjBuLKMfWy5Rg5LWePZHghWPc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
