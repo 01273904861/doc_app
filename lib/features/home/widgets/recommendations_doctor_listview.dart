@@ -7,15 +7,10 @@ class RecommendationsDoctorListView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      height: 320.h,
+    return Expanded(
       child: ListView.builder(
         itemCount: 5,
-        scrollDirection: Axis.horizontal,
-        itemBuilder: (context, index) => Padding(
-          padding: EdgeInsetsDirectional.only(start: index == 0 ? 0 : 24.w),
-          child: const DoctorImageAndSomeData(),
-        ),
+        itemBuilder: (context, index) => const DoctorImageAndSomeData(),
       ),
     );
   }

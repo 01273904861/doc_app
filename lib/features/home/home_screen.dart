@@ -1,4 +1,3 @@
-import 'package:appoment_app/core/helper/spacing.dart';
 import 'package:appoment_app/features/home/widgets/app_bar_icon.dart';
 import 'package:appoment_app/features/home/widgets/app_bar_title.dart';
 import 'package:appoment_app/features/home/widgets/docotor_speciality_list_view.dart';
@@ -19,26 +18,20 @@ class HomeView extends StatelessWidget {
         title: const AppBarTitle(),
         actions: const [AppBarIcon()],
       ),
-      body: SingleChildScrollView(
-        child: Padding(
-          padding: EdgeInsets.symmetric(horizontal: 8.w),
-          child: Column(
-            children: [
-              const DoctorsContainer(),
-              verticalSpace(20),
-              const SectionsHeaderAndSeeAll(
-                title: 'Doctor Speciality',
-              ),
-              verticalSpace(20),
-              const DoctorSpecialityListView(),
-              verticalSpace(20),
-              const SectionsHeaderAndSeeAll(
-                title: 'Recommendation Doctor',
-              ),
-              verticalSpace(20),
-              const RecommendationsDoctorListView(),
-            ],
-          ),
+      body: Padding(
+        padding: EdgeInsets.symmetric(horizontal: 8.w),
+        child: const Column(
+          children: [
+            DoctorsContainer(),
+            SectionsHeaderAndSeeAll(
+              title: 'Doctor Speciality',
+            ),
+            DoctorSpecialityListView(),
+            SectionsHeaderAndSeeAll(
+              title: 'Recommendation Doctor',
+            ),
+            RecommendationsDoctorListView(),
+          ],
         ),
       ),
     ));

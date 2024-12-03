@@ -8,11 +8,14 @@ class DoctorSpecialityListView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 130.h,
+      height: 110.h,
       child: ListView.builder(
         itemCount: 5,
         scrollDirection: Axis.horizontal,
-       itemBuilder: (context, index) => const SpecialistImageAndName(),
+        itemBuilder: (context, index) => Padding(
+          padding: EdgeInsetsDirectional.only(start: index == 0 ? 0 : 24.w),
+          child: const SpecialistImageAndName(),
+        ),
       ),
     );
   }
