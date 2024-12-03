@@ -13,8 +13,8 @@ class DoctorImageAndText extends StatelessWidget {
       child: Stack(
         alignment: Alignment.center,
         children: [
-          Image.asset(AppImages.onBoardingBackground),
-          Container(
+      Image.asset(Assets.assetsImagesOnboardingBackground),
+           Container(
             foregroundDecoration: BoxDecoration(
               gradient: LinearGradient(
                 colors: [
@@ -26,7 +26,7 @@ class DoctorImageAndText extends StatelessWidget {
                 stops: const [0.14, .4],
               ),
             ),
-            child: Image.asset(AppImages.onBoardingDoctor),
+            child: Image.asset(Assets.assetsImagesOnBoardingDoctor),
           ),
           Positioned(
             bottom: 10.h,

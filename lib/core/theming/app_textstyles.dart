@@ -71,4 +71,9 @@ class AppTextstyles {
     color: Colors.white,
     fontSize: 16.sp,
   );
+    static TextStyle font18BlackRegular = TextStyle(
+    fontWeight: AppFontWeightHelper.regular,
+    color: Colors.black,
+    fontSize: 18.sp,
+  );
 }

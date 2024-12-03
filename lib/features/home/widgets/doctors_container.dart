@@ -1,4 +1,3 @@
-
 import 'package:appoment_app/core/helper/spacing.dart';
 import 'package:appoment_app/core/theming/app_colors.dart';
 import 'package:appoment_app/core/theming/app_images.dart';
@@ -19,13 +18,12 @@ class DoctorsContainer extends StatelessWidget {
         alignment: Alignment.bottomCenter,
         children: [
           Container(
-            margin: EdgeInsets.symmetric(horizontal: 8.w),
             padding: EdgeInsets.all(16.sp),
             decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(24.r),
                 color: AppColors.mainBlue),
             width: double.infinity,
-            height: 167.h,
+            height: 175.h,
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
@@ -44,7 +42,7 @@ class DoctorsContainer extends StatelessWidget {
           Positioned(
               right: 10.w,
               top: 0,
-              child: Image.asset(height: 197.h, AppImages.onBoardingDoctor))
+              child: Image.asset(height: 200.h, Assets.assetsImagesOnBoardingDoctor))
         ],
       ),
     );

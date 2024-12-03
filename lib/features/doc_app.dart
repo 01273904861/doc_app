@@ -14,7 +14,7 @@ class DocApp extends StatelessWidget {
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
         onGenerateRoute: appRouter.onGenerateRoute,
-        initialRoute: Routes.onBoardingScreen,
+        initialRoute: Routes.homeView,
       ),
     );
   }

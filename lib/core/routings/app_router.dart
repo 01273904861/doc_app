@@ -1,6 +1,6 @@
 import 'package:appoment_app/core/di/dependency_injection.dart';
 import 'package:appoment_app/core/routings/routes.dart';
-import 'package:appoment_app/features/home/views/home_screen.dart';
+import 'package:appoment_app/features/home/home_screen.dart';
 import 'package:appoment_app/features/login/logic/cubit/login_cubit.dart';
 import 'package:appoment_app/features/login/login_screen.dart';
 import 'package:appoment_app/features/onboarding/onboarding_screen.dart';
