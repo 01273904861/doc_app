@@ -66,4 +66,9 @@ class AppTextstyles {
     color: AppColors.black,
     fontSize: 12.sp,
   );
+  static TextStyle font16WhiteMeduim = TextStyle(
+    fontWeight: AppFontWeightHelper.meduim,
+    color: Colors.white,
+    fontSize: 16.sp,
+  );
 }

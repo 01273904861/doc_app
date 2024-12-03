@@ -1,7 +1,6 @@
 import 'package:appoment_app/core/theming/app_images.dart';
 import 'package:appoment_app/core/theming/app_textstyles.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class DoctorImageAndText extends StatelessWidget {
@@ -16,7 +15,6 @@ class DoctorImageAndText extends StatelessWidget {
         children: [
           Image.asset(AppImages.onBoardingBackground),
           Container(
-            
             foregroundDecoration: BoxDecoration(
               gradient: LinearGradient(
                 colors: [
