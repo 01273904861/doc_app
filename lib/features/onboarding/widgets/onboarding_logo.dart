@@ -12,7 +12,7 @@ class OnBoardingLogo extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         Image.asset(
-          AppImages.appLogo,
+          Assets.assetsImagesAppLogo,
           width: 45.w,
           height: 45.h,
         ),

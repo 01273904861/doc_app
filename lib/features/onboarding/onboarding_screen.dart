@@ -1,3 +1,4 @@
+import 'package:appoment_app/core/helper/spacing.dart';
 import 'package:appoment_app/core/theming/app_textstyles.dart';
 import 'package:appoment_app/features/onboarding/widgets/docotor_image_and_text.dart';
 import 'package:appoment_app/features/onboarding/widgets/get_started_button.dart';
@@ -15,13 +16,9 @@ class OnBoardingScreen extends StatelessWidget {
           body: SingleChildScrollView(
         child: Column(
           children: [
-            SizedBox(
-              height: 30.h,
-            ),
+            verticalSpace(30),
             const OnBoardingLogo(),
-            SizedBox(
-              height: 30.h,
-            ),
+            verticalSpace(30),
             const DoctorImageAndText(),
             Text(
               'Manage and schedule all of your medical\n appointments easily with Docdoc\n to get a new experience.',
@@ -30,13 +27,9 @@ class OnBoardingScreen extends StatelessWidget {
                 height: 1.4.h,
               ),
             ),
-            SizedBox(
-              height: 30.h,
-            ),
+            verticalSpace(30),
             const GetStartedButton(),
-            SizedBox(
-              height: 30.h,
-            ),
+            verticalSpace(30),
           ],
         ),
       )),

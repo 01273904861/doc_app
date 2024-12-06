@@ -1,9 +1,9 @@
 import 'package:appoment_app/core/di/dependency_injection.dart';
 import 'package:appoment_app/core/routings/routes.dart';
-import 'package:appoment_app/features/home/views/home_view.dart';
+import 'package:appoment_app/features/home/home_screen.dart';
 import 'package:appoment_app/features/login/logic/cubit/login_cubit.dart';
 import 'package:appoment_app/features/login/login_screen.dart';
-import 'package:appoment_app/features/onboarding/onboarding.dart';
+import 'package:appoment_app/features/onboarding/onboarding_screen.dart';
 import 'package:appoment_app/features/sign%20up/logic/cubit/cubit/sign_up_cubit.dart';
 import 'package:appoment_app/features/sign%20up/ui/sign_up_screen.dart';
 import 'package:flutter/material.dart';

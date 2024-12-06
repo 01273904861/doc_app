@@ -1,7 +1,6 @@
 import 'package:appoment_app/core/theming/app_images.dart';
 import 'package:appoment_app/core/theming/app_textstyles.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class DoctorImageAndText extends StatelessWidget {
@@ -14,9 +13,8 @@ class DoctorImageAndText extends StatelessWidget {
       child: Stack(
         alignment: Alignment.center,
         children: [
-          Image.asset(AppImages.onBoardingBackground),
-          Container(
-            
+      Image.asset(Assets.assetsImagesOnboardingBackground),
+           Container(
             foregroundDecoration: BoxDecoration(
               gradient: LinearGradient(
                 colors: [
@@ -28,7 +26,7 @@ class DoctorImageAndText extends StatelessWidget {
                 stops: const [0.14, .4],
               ),
             ),
-            child: Image.asset(AppImages.onBoardingDoctor),
+            child: Image.asset(Assets.assetsImagesOnBoardingDoctor),
           ),
           Positioned(
             bottom: 10.h,
