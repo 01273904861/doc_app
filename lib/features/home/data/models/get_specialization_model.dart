@@ -8,7 +8,7 @@ class GetSpecializationResponseModel {
 
   GetSpecializationResponseModel({required this.name, required this.id, required this.doctors});
 
-  factory GetSpecializationResponseModel.fromjson(Map<String , dynamic>json)=>_$GetSpecializationResponseModelFromJson(json);
+  factory GetSpecializationResponseModel.fromJson(Map<String , dynamic>json)=>_$GetSpecializationResponseModelFromJson(json);
 }
 @JsonSerializable()
 

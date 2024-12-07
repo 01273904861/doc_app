@@ -1,4 +1,4 @@
-import 'package:appoment_app/features/home/widgets/specialist_image_and_name.dart';
+import 'package:appoment_app/features/home/ui/widgets/specialist_image_and_name.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
