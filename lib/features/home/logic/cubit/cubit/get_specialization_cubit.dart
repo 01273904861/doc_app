@@ -18,12 +18,14 @@ class GetSpecializationCubit extends Cubit<GetSpecializationState> {
     res.when(
       success: (res) {
         specializationsDataList = res.data;
-
-        emit(GetSpecializationState.success(res));
+        // get doctors of first id as default
+        getDoctors(specializationId: specializationsDataList?.first.id ?? 0);
+        emit(GetSpecializationState.success(specializationsDataList));
       },
       failure: (res) {
         emit(GetSpecializationState.failure(
-            errorMessage: res.apiErrorModel.message ?? ''));
+            errorMessage: res.apiErrorModel.message ??
+                'failed to fetch specializations'));
       },
     );
   }
@@ -39,12 +41,19 @@ class GetSpecializationCubit extends Cubit<GetSpecializationState> {
     return null;
   }
 
-  List<DoctorModel>? getDoctors(int specializationId) {
-    for (var element in specializationsDataList!) {
-      if (element.id == specializationId) {
-        return element.doctors;
-      }
+  void getDoctors({required int specializationId}) {
+    List<DoctorModel>? doctorsList = [];
+
+    doctorsList = specializationsDataList
+        ?.firstWhere((specialization) => specialization.id == specializationId)
+        .doctors;
+    if (doctorsList?.isEmpty ?? true) {
+      emit(
+        const GetSpecializationState.doctorsFailure(
+            errorMessage: 'docotors not found'),
+      );
+    } else {
+      emit(GetSpecializationState.doctorsSuccess(doctorsList));
     }
-    return null;
   }
 }

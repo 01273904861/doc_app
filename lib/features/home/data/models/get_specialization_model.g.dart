@@ -11,8 +11,7 @@ GetAllSpecializationsModel _$GetAllSpecializationsModelFromJson(
     GetAllSpecializationsModel(
       message: json['message'] as String?,
       data: (json['data'] as List<dynamic>?)
-          ?.map((e) =>
-              GetAllSpecializationsModel.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => SpecializationData.fromJson(e as Map<String, dynamic>))
           .toList(),
     );
 
