@@ -1,44 +1,68 @@
 import 'package:json_annotation/json_annotation.dart';
 part 'get_specialization_model.g.dart';
+
 @JsonSerializable()
-class GetSpecializationResponseModel {
-  final String name;
-  final int id;
-  final List<DoctorModel> doctors;
+class GetAllSpecializationsModel {
+  String? message;
+  List<SpecializationData>? data;
 
-  GetSpecializationResponseModel({required this.name, required this.id, required this.doctors});
-
-  factory GetSpecializationResponseModel.fromJson(Map<String , dynamic>json)=>_$GetSpecializationResponseModelFromJson(json);
+  GetAllSpecializationsModel({this.message, this.data});
+  factory GetAllSpecializationsModel.fromJson(Map<String, dynamic> json) =>
+      _$GetAllSpecializationsModelFromJson(json);
 }
-@JsonSerializable()
 
+@JsonSerializable()
+class SpecializationData {
+  String? name;
+  int? id;
+  List<DoctorModel>? doctors;
+
+  SpecializationData({this.name, this.id, this.doctors});
+
+  factory SpecializationData.fromJson(Map<String, dynamic> json) =>_$SpecializationDataFromJson(json);
+}
+
+@JsonSerializable()
 class DoctorModel {
-  final int id;
-  final String name;
-  final String phone;
-  final String photo;
-  final String address;
-  final String description;
-  
-  final String degree;
+  int? id;
+  String? name;
+  String? phone;
+  String? photo;
+  String? address;
+  String? description;
+
+  String? degree;
   @JsonKey(name: 'appoint_price')
-  final int appointPrice;
+  int? appointPrice;
   @JsonKey(name: 'start_time')
-  final String startTime;
+  String? startTime;
   @JsonKey(name: 'end_time')
-  final String endTime;
+  String? endTime;
 
-  final CityModel city;
+  CityModel? city;
 
-  DoctorModel({required this.id, required this.name, required this.phone, required this.photo, required this.address, required this.description, required this.degree, required this.appointPrice, required this.startTime, required this.endTime, required this.city});
-  factory DoctorModel.fromJson(Map<String , dynamic>json)=>_$DoctorModelFromJson(json);
+  DoctorModel(
+      this.id,
+      this.name,
+      this.phone,
+      this.photo,
+      this.address,
+      this.description,
+      this.degree,
+      this.appointPrice,
+      this.startTime,
+      this.endTime,
+      this.city);
+  factory DoctorModel.fromJson(Map<String, dynamic> json) =>
+      _$DoctorModelFromJson(json);
 }
+
 @JsonSerializable()
+class CityModel {
+  int? id;
+  String? name;
 
-class CityModel{
-final int id ;
-final String name;
-
-  CityModel({required this.id, required this.name});
-  factory CityModel.fromJson(Map<String , dynamic>json)=>_$CityModelFromJson(json);
+  CityModel({this.id, this.name});
+  factory CityModel.fromJson(Map<String, dynamic> json) =>
+      _$CityModelFromJson(json);
 }

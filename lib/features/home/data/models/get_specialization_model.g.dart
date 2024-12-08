@@ -6,18 +6,33 @@ part of 'get_specialization_model.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-GetSpecializationResponseModel _$GetSpecializationResponseModelFromJson(
+GetAllSpecializationsModel _$GetAllSpecializationsModelFromJson(
         Map<String, dynamic> json) =>
-    GetSpecializationResponseModel(
-      name: json['name'] as String,
-      id: (json['id'] as num).toInt(),
-      doctors: (json['doctors'] as List<dynamic>)
-          .map((e) => DoctorModel.fromJson(e as Map<String, dynamic>))
+    GetAllSpecializationsModel(
+      message: json['message'] as String?,
+      data: (json['data'] as List<dynamic>?)
+          ?.map((e) =>
+              GetAllSpecializationsModel.fromJson(e as Map<String, dynamic>))
           .toList(),
     );
 
-Map<String, dynamic> _$GetSpecializationResponseModelToJson(
-        GetSpecializationResponseModel instance) =>
+Map<String, dynamic> _$GetAllSpecializationsModelToJson(
+        GetAllSpecializationsModel instance) =>
+    <String, dynamic>{
+      'message': instance.message,
+      'data': instance.data,
+    };
+
+SpecializationData _$SpecializationDataFromJson(Map<String, dynamic> json) =>
+    SpecializationData(
+      name: json['name'] as String?,
+      id: (json['id'] as num?)?.toInt(),
+      doctors: (json['doctors'] as List<dynamic>?)
+          ?.map((e) => DoctorModel.fromJson(e as Map<String, dynamic>))
+          .toList(),
+    );
+
+Map<String, dynamic> _$SpecializationDataToJson(SpecializationData instance) =>
     <String, dynamic>{
       'name': instance.name,
       'id': instance.id,
@@ -25,17 +40,19 @@ Map<String, dynamic> _$GetSpecializationResponseModelToJson(
     };
 
 DoctorModel _$DoctorModelFromJson(Map<String, dynamic> json) => DoctorModel(
-      id: (json['id'] as num).toInt(),
-      name: json['name'] as String,
-      phone: json['phone'] as String,
-      photo: json['photo'] as String,
-      address: json['address'] as String,
-      description: json['description'] as String,
-      degree: json['degree'] as String,
-      appointPrice: (json['appoint_price'] as num).toInt(),
-      startTime: json['start_time'] as String,
-      endTime: json['end_time'] as String,
-      city: CityModel.fromJson(json['city'] as Map<String, dynamic>),
+      (json['id'] as num?)?.toInt(),
+      json['name'] as String?,
+      json['phone'] as String?,
+      json['photo'] as String?,
+      json['address'] as String?,
+      json['description'] as String?,
+      json['degree'] as String?,
+      (json['appoint_price'] as num?)?.toInt(),
+      json['start_time'] as String?,
+      json['end_time'] as String?,
+      json['city'] == null
+          ? null
+          : CityModel.fromJson(json['city'] as Map<String, dynamic>),
     );
 
 Map<String, dynamic> _$DoctorModelToJson(DoctorModel instance) =>
@@ -54,8 +71,8 @@ Map<String, dynamic> _$DoctorModelToJson(DoctorModel instance) =>
     };
 
 CityModel _$CityModelFromJson(Map<String, dynamic> json) => CityModel(
-      id: (json['id'] as num).toInt(),
-      name: json['name'] as String,
+      id: (json['id'] as num?)?.toInt(),
+      name: json['name'] as String?,
     );
 
 Map<String, dynamic> _$CityModelToJson(CityModel instance) => <String, dynamic>{
