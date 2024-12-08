@@ -1,4 +1,3 @@
-import 'package:appoment_app/core/networking/api_error_model.dart';
 import 'package:appoment_app/features/sign%20up/data/models/sign_up_request_body.dart';
 import 'package:appoment_app/features/sign%20up/data/repos/sign_up_repo.dart';
 import 'package:bloc/bloc.dart';
@@ -22,18 +21,23 @@ class SignUpCubit extends Cubit<SignUpState> {
   int x = 5;
   void emitSignUpSates() async {
     emit(const SignUpLoading());
-    final res = await _signUpRepo.signUp(SignUpRequestBody(
-      name: nameController.text,
-      email: emailController.text,
-      password: passwordController.text,
-      phone: phoneController.text,
-      gender: int.parse(genderController.text),
-      passwordConfirmation: passwordConfirmationController.text,
-    ));
-    res.when(success: (responseSuccess) {
-      emit(SignUpSuccess(res));
-    }, failure: (failure) {
-      emit(SignUpFailure(message: failure.apiErrorModel.message ?? " "));
-    });
+    final res = await _signUpRepo.signUp(
+      SignUpRequestBody(
+        name: nameController.text,
+        email: emailController.text,
+        password: passwordController.text,
+        phone: phoneController.text,
+        gender: int.parse(genderController.text),
+        passwordConfirmation: passwordConfirmationController.text,
+      ),
+    );
+    res.when(
+      success: (responseSuccess) {
+        emit(SignUpSuccess(res));
+      },
+      failure: (failure) {
+        emit(SignUpFailure(message: failure.apiErrorModel.message ?? " "));
+      },
+    );
   }
 }
