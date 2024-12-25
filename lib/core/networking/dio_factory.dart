@@ -9,15 +9,21 @@ class DioFactory {
   static Dio getDio() {
     if (dio == null) {
       dio = Dio();
-      // dio!.options.receiveTimeout = timeOut;
-      // dio!.options.connectTimeout = timeOut;
       dio!
         ..options.connectTimeout = timeOut
         ..options.receiveTimeout = timeOut;
-
+       addHeaders();
       addDioInterceptors();
     }
     return dio!;
+  }
+
+  static void addHeaders()async {
+    dio?.options.headers = {
+      'Accept': 'application/json',
+      'Authorization':
+          'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczovL3ZjYXJlLmludGVncmF0aW9uMjUuY29tL2FwaS9hdXRoL3JlZ2lzdGVyIiwiaWF0IjoxNzM2MTkxNDUyLCJleHAiOjE3MzYyNzc4NTIsIm5iZiI6MTczNjE5MTQ1MiwianRpIjoiYmpBRzF3clhZbTFrdmxPSCIsInN1YiI6IjMwMzYiLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.y1LSQvEPA9MH8IGGDiXttD9lsQCFYl5qreM_XvDW8xw',
+    };
   }
 
   static void addDioInterceptors() {

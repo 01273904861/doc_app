@@ -2,14 +2,16 @@ import 'package:appoment_app/core/helper/spacing.dart';
 import 'package:appoment_app/core/theming/app_images.dart';
 import 'package:appoment_app/core/theming/app_textstyles.dart';
 import 'package:appoment_app/core/theming/fontweight_helpr.dart';
+import 'package:appoment_app/features/home/data/models/get_specialization_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-class DoctorImageAndSomeData extends StatelessWidget {
-  const DoctorImageAndSomeData({
+class RecommendationDoctorsListviewItem extends StatelessWidget {
+  const RecommendationDoctorsListviewItem({
     super.key,
+    required this.doctorModel,
   });
-
+  final DoctorModel? doctorModel;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -36,13 +38,14 @@ class DoctorImageAndSomeData extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                'Dr. Randy Wigham',
+                doctorModel?.name ?? 'abdullah',
                 style: AppTextstyles.font16WhiteSemiBold
                     .copyWith(color: Colors.black),
               ),
               verticalSpace(10),
               Text(
-                'General | RSUD Gatot Subroto',
+             '${doctorModel?.degree} | ${doctorModel?.phone}'
+              ,
                 style: AppTextstyles.font12LigtGreyRegular
                     .copyWith(fontWeight: AppFontWeightHelper.meduim),
               ),

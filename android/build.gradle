@@ -6,13 +6,27 @@ allprojects {
 }
 
 rootProject.buildDir = "../build"
+
 subprojects {
+    // Ensure all subprojects use the same build directory structure
     project.buildDir = "${rootProject.buildDir}/${project.name}"
-}
-subprojects {
-    project.evaluationDependsOn(":app")
+
+    // Ensure the ':app' module is evaluated first
+    evaluationDependsOn(":app")
 }
 
 tasks.register("clean", Delete) {
+    // Task to clean the build directory
     delete rootProject.buildDir
+}
+
+// Add this section to apply the Android Gradle Plugin version
+buildscript {
+    repositories {
+        google()
+        mavenCentral()
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:8.1.0'
+    }
 }

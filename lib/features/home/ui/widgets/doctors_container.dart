@@ -5,8 +5,8 @@ import 'package:appoment_app/core/theming/app_textstyles.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-class DoctorsContainer extends StatelessWidget {
-  const DoctorsContainer({
+class DoctorsBlueContainer extends StatelessWidget {
+  const DoctorsBlueContainer({
     super.key,
   });
 
@@ -42,7 +42,8 @@ class DoctorsContainer extends StatelessWidget {
           Positioned(
               right: 10.w,
               top: 0,
-              child: Image.asset(height: 200.h, Assets.assetsImagesOnBoardingDoctor))
+              child: Image.asset(
+                  height: 200.h, Assets.assetsImagesOnBoardingDoctor))
         ],
       ),
     );
