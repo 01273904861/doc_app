@@ -8,6 +8,8 @@ import 'package:retrofit/retrofit.dart';
 part 'api_service.g.dart';
 
 @RestApi(baseUrl: ApiConstants.baseUrl)
+//@RestApi: Annotates this interface to define an API service with a base URL
+
 abstract class ApiService {
   factory ApiService(Dio dio, {String baseUrl}) = _ApiService;
 
