@@ -92,14 +92,13 @@ mixin _$GetSpecializationState<T> {
 
 /// @nodoc
 abstract class $GetSpecializationStateCopyWith<T, $Res> {
-  factory $GetSpecializationStateCopyWith(GetSpecializationState<T> value,
-          $Res Function(GetSpecializationState<T>) then) =
-      _$GetSpecializationStateCopyWithImpl<T, $Res, GetSpecializationState<T>>;
+  factory $GetSpecializationStateCopyWith(
+          HomeStates<T> value, $Res Function(HomeStates<T>) then) =
+      _$GetSpecializationStateCopyWithImpl<T, $Res, HomeStates<T>>;
 }
 
 /// @nodoc
-class _$GetSpecializationStateCopyWithImpl<T, $Res,
-        $Val extends GetSpecializationState<T>>
+class _$GetSpecializationStateCopyWithImpl<T, $Res, $Val extends HomeStates<T>>
     implements $GetSpecializationStateCopyWith<T, $Res> {
   _$GetSpecializationStateCopyWithImpl(this._value, this._then);
 
@@ -251,7 +250,7 @@ class _$SpecializationInitialImpl<T> implements _SpecializationInitial<T> {
   }
 }
 
-abstract class _SpecializationInitial<T> implements GetSpecializationState<T> {
+abstract class _SpecializationInitial<T> implements HomeStates<T> {
   const factory _SpecializationInitial() = _$SpecializationInitialImpl<T>;
 }
 
@@ -394,7 +393,7 @@ class _$SpecializationLoadingImpl<T> implements SpecializationLoading<T> {
   }
 }
 
-abstract class SpecializationLoading<T> implements GetSpecializationState<T> {
+abstract class SpecializationLoading<T> implements HomeStates<T> {
   const factory SpecializationLoading() = _$SpecializationLoadingImpl<T>;
 }
 
@@ -565,7 +564,7 @@ class _$SpecializationSuccessImpl<T> implements SpecializationSuccess<T> {
   }
 }
 
-abstract class SpecializationSuccess<T> implements GetSpecializationState<T> {
+abstract class SpecializationSuccess<T> implements HomeStates<T> {
   const factory SpecializationSuccess(final T data) =
       _$SpecializationSuccessImpl<T>;
 
@@ -745,7 +744,7 @@ class _$SpecializationFailureImpl<T> implements SpecializationFailure<T> {
   }
 }
 
-abstract class SpecializationFailure<T> implements GetSpecializationState<T> {
+abstract class SpecializationFailure<T> implements HomeStates<T> {
   const factory SpecializationFailure(
           {required final ErrorHandler errorHandler}) =
       _$SpecializationFailureImpl<T>;
@@ -895,7 +894,7 @@ class _$DoctorsLoadingImpl<T> implements DoctorsLoading<T> {
   }
 }
 
-abstract class DoctorsLoading<T> implements GetSpecializationState<T> {
+abstract class DoctorsLoading<T> implements HomeStates<T> {
   const factory DoctorsLoading() = _$DoctorsLoadingImpl<T>;
 }
 
@@ -1072,7 +1071,7 @@ class _$DoctorsSuccessImpl<T> implements DoctorsSuccess<T> {
   }
 }
 
-abstract class DoctorsSuccess<T> implements GetSpecializationState<T> {
+abstract class DoctorsSuccess<T> implements HomeStates<T> {
   const factory DoctorsSuccess(final List<DoctorModel?>? doctors) =
       _$DoctorsSuccessImpl<T>;
 
@@ -1250,7 +1249,7 @@ class _$DoctorsFailureImpl<T> implements DoctorsFailure<T> {
   }
 }
 
-abstract class DoctorsFailure<T> implements GetSpecializationState<T> {
+abstract class DoctorsFailure<T> implements HomeStates<T> {
   const factory DoctorsFailure({required final String errorMessage}) =
       _$DoctorsFailureImpl<T>;
 

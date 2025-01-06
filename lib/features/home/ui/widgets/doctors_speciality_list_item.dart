@@ -4,9 +4,10 @@ import 'package:appoment_app/features/home/data/models/get_specialization_model.
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-class SpecialistImageAndName extends StatelessWidget {
-  const SpecialistImageAndName({super.key, required this.specializationData});
- final SpecializationData specializationData;
+class DoctorsSpecialityListItem extends StatelessWidget {
+  const DoctorsSpecialityListItem(
+      {super.key, required this.specializationData});
+  final SpecializationData specializationData;
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -19,7 +20,7 @@ class SpecialistImageAndName extends StatelessWidget {
               height: 50.h,
             )),
         verticalSpace(10),
-         Text(specializationData.name?? "general"),
+        Text(specializationData.name ?? "general"),
       ],
     );
   }

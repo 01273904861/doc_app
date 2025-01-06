@@ -1,4 +1,4 @@
-import 'package:appoment_app/features/login/data/models/log_in_request_body.dart';
+import 'package:appoment_app/features/login/data/models/log_in_request_body_model.dart';
 import 'package:appoment_app/features/login/data/repos/login_repo.dart';
 import 'package:appoment_app/features/login/logic/cubit/login_states.dart';
 import 'package:bloc/bloc.dart';
@@ -13,13 +13,11 @@ class LoginCubit extends Cubit<LoginStates> {
 
   void emitLoginStates() async {
     emit(const LoginStates.loading());
-    final response = await _loginRepos.login(LoginRequestBody(
+    final response = await _loginRepos.login(LoginRequestBodyModel(
         email: emailController.text, password: passwordController.text));
 
     response.when(success: (loginResponse) async {
-     
       emit(LoginStates.success(loginResponse));
-     
     }, failure: (error) {
       emit(
         LoginStates.failure(errorMessage: error.apiErrorModel.message ?? ''),

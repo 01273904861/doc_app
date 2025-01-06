@@ -1,18 +1,20 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'log_in_request_body.dart';
+part of 'log_in_request_body_model.dart';
 
 // **************************************************************************
 // JsonSerializableGenerator
 // **************************************************************************
 
-LoginRequestBody _$LoginRequestBodyFromJson(Map<String, dynamic> json) =>
-    LoginRequestBody(
+LoginRequestBodyModel _$LoginRequestBodyModelFromJson(
+        Map<String, dynamic> json) =>
+    LoginRequestBodyModel(
       email: json['email'] as String,
       password: json['password'] as String,
     );
 
-Map<String, dynamic> _$LoginRequestBodyToJson(LoginRequestBody instance) =>
+Map<String, dynamic> _$LoginRequestBodyModelToJson(
+        LoginRequestBodyModel instance) =>
     <String, dynamic>{
       'email': instance.email,
       'password': instance.password,

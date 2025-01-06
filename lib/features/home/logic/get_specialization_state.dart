@@ -1,19 +1,17 @@
 part of 'get_specialization_cubit.dart';
 
 @freezed
-class GetSpecializationState<T> with _$GetSpecializationState {
-  const factory GetSpecializationState.specializationInitial() =
-      _SpecializationInitial;
-  const factory GetSpecializationState.specializationLoading() =
-      SpecializationLoading;
-  const factory GetSpecializationState.specializationSuccess(T data) =
+class HomeStates<T> with _$GetSpecializationState {
+  const factory HomeStates.specializationInitial() = _SpecializationInitial;
+  const factory HomeStates.specializationLoading() = SpecializationLoading;
+  const factory HomeStates.specializationSuccess(T data) =
       SpecializationSuccess<T>;
-  const factory GetSpecializationState.specializationFailure(
-      {required ErrorHandler errorHandler}) = SpecializationFailure ;
+  const factory HomeStates.specializationFailure(
+      {required ErrorHandler errorHandler}) = SpecializationFailure;
 
-  const factory GetSpecializationState.doctorsLoading() = DoctorsLoading;
-  const factory GetSpecializationState.doctorsSuccess(
-      List<DoctorModel?>? doctors) = DoctorsSuccess;
-  const factory GetSpecializationState.doctorsFailure(
-      {required String errorMessage}) = DoctorsFailure;
+  const factory HomeStates.doctorsLoading() = DoctorsLoading;
+  const factory HomeStates.doctorsSuccess(List<DoctorModel?>? doctors) =
+      DoctorsSuccess;
+  const factory HomeStates.doctorsFailure({required String errorMessage}) =
+      DoctorsFailure;
 }
