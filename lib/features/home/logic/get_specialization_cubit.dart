@@ -7,24 +7,23 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 part 'get_specialization_state.dart';
 part 'get_specialization_cubit.freezed.dart';
 
-class GetSpecializationCubit extends Cubit<GetSpecializationState> {
-  GetSpecializationCubit(this.homeRepo)
-      : super(const GetSpecializationState.specializationInitial());
+class HomeCubit extends Cubit<HomeStates> {
+  HomeCubit(this.homeRepo) : super(const HomeStates.specializationInitial());
   final HomeRepo homeRepo;
   List<SpecializationData>? specializationsDataList = [];
 
   emitGetSpecialization() async {
-    emit(const GetSpecializationState.specializationLoading());
+    emit(const HomeStates.specializationLoading());
     final res = await homeRepo.getSpecialization();
     res.when(
       success: (res) {
         specializationsDataList = res.data ?? [];
         // get doctors of first id as default
         getDoctors(specializationId: specializationsDataList?.first.id ?? 0);
-        emit(GetSpecializationState.specializationSuccess(specializationsDataList));
+        emit(HomeStates.specializationSuccess(specializationsDataList));
       },
       failure: (resError) {
-        emit(GetSpecializationState.specializationFailure(errorHandler: resError));
+        emit(HomeStates.specializationFailure(errorHandler: resError));
       },
     );
   }
@@ -48,11 +47,10 @@ class GetSpecializationCubit extends Cubit<GetSpecializationState> {
         .doctors;
     if (doctorsList?.isEmpty ?? true) {
       emit(
-        const GetSpecializationState.doctorsFailure(
-            errorMessage: 'docotors not found'),
+        const HomeStates.doctorsFailure(errorMessage: 'docotors not found'),
       );
     } else {
-      emit(GetSpecializationState.doctorsSuccess(doctorsList));
+      emit(HomeStates.doctorsSuccess(doctorsList));
     }
   }
 }

@@ -1,7 +1,8 @@
 import 'package:appoment_app/features/home/ui/widgets/app_bar_icon.dart';
 import 'package:appoment_app/features/home/ui/widgets/app_bar_title.dart';
 import 'package:appoment_app/features/home/ui/widgets/doctors_container.dart';
-import 'package:appoment_app/features/home/ui/widgets/doctors_specialization_and_recommendation.dart';
+import 'package:appoment_app/features/home/ui/widgets/doctors_speciality_bloc_builder.dart';
+import 'package:appoment_app/features/home/ui/widgets/recommendation_doctors_bloc_builder.dart';
 import 'package:appoment_app/features/home/ui/widgets/sections_head_and_see_all.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -25,7 +26,8 @@ class HomeView extends StatelessWidget {
             SectionsHeaderAndSeeAll(
               title: 'Doctor Speciality',
             ),
-            DoctorSpecialityAndRecondationBlocBuilder(),
+            DoctorsSpecialityBlocBuilder(),
+           RecommendationDoctorsBlocBuilder(),         
           ],
         ),
       ),

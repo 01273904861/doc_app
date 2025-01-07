@@ -1,6 +1,6 @@
 import 'package:appoment_app/core/networking/api_constants.dart';
-import 'package:appoment_app/features/login/data/models/log_in_request_body.dart';
-import 'package:appoment_app/features/login/data/models/log_in_response.dart';
+import 'package:appoment_app/features/login/data/models/log_in_request_body_model.dart';
+import 'package:appoment_app/features/login/data/models/log_in_response_model.dart';
 import 'package:appoment_app/features/sign%20up/data/models/sign_up_request_body.dart';
 import 'package:appoment_app/features/sign%20up/data/models/sign_up_response_model.dart';
 import 'package:dio/dio.dart';
@@ -14,8 +14,8 @@ abstract class ApiService {
   factory ApiService(Dio dio, {String baseUrl}) = _ApiService;
 
   @POST(ApiConstants.login)
-  Future<LoginResponse> signIn(
-    @Body() LoginRequestBody logInBodyRequest,
+  Future<LoginResponseModel> signIn(
+    @Body() LoginRequestBodyModel logInBodyRequest,
   );
 
   @POST(ApiConstants.signUp)
