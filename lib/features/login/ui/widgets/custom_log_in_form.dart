@@ -26,7 +26,7 @@ class _CustomLogInFormState extends State<CustomLogInForm> {
   late TextEditingController passwordController;
   @override
   void initState() {
-    passwordController = context.read<LoginCubit>().passwordController;
+    passwordController = context.read<LogInCubit>().passwordController;
     passwordContollerChanges();
     super.initState();
   }
@@ -46,7 +46,7 @@ class _CustomLogInFormState extends State<CustomLogInForm> {
 
   @override
   Widget build(BuildContext context) {
-    final loginCubit = context.read<LoginCubit>();
+    final loginCubit = context.read<LogInCubit>();
 
     return Form(
         key: loginCubit.signInFormKey,
@@ -100,6 +100,7 @@ class _CustomLogInFormState extends State<CustomLogInForm> {
           ],
         ));
   }
+
   @override
   void dispose() {
     passwordController.dispose();

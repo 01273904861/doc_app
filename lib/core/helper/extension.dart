@@ -19,4 +19,8 @@ extension Navigation on BuildContext {
   void pop() {
     Navigator.of(this).pop();
   }
+
+}
+extension StringExension on String?{
+  bool isNullOrEmpty()=>this == null || this == "";
 }

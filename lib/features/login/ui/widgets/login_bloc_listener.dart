@@ -11,9 +11,11 @@ class LoginBlocListener extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocListener<LoginCubit, LoginStates>(
+    return BlocListener<LogInCubit, LogInStates>(
       listenWhen: (previous, current) =>
-          current is LoginLoading || current is LoginSuccess || current is LoginFailure,
+          current is LoginLoading ||
+          current is LoginSuccess ||
+          current is LoginFailure,
       listener: (context, state) {
         state.whenOrNull(success: (loginResponse) {
           context.pop();
@@ -26,7 +28,8 @@ class LoginBlocListener extends StatelessWidget {
               });
           context.pop();
 
-          context.pushNamedAndRemoveUntile(Routes.homeView, predicate:  (context)=>false);
+          context.pushNamedAndRemoveUntile(Routes.homeView,
+              predicate: (context) => false);
         }, failure: (failureMessage) {
           setupErrorState(context, failureMessage);
         }, loading: () {

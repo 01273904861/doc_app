@@ -17,17 +17,17 @@ void setUpGetIt() {
   getIt.registerLazySingleton<ApiService>(() => ApiService(dio));
   //   login
   getIt.registerLazySingleton<LoginRepo>(() => LoginRepo(apiService: getIt()));
-  getIt.registerFactory<LoginCubit>(() => LoginCubit(getIt()));
+  getIt.registerFactory<LogInCubit>(() => LogInCubit(getIt()));
   //sign up
 
   getIt
       .registerLazySingleton<SignUpRepo>(() => SignUpRepo(apiService: getIt()));
   getIt.registerFactory<SignUpCubit>(() => SignUpCubit(getIt()));
 
-
   //home
-  
-  //i used another apiservice "homeApiService" first you should register it 
-    getIt.registerLazySingleton<HomeApiService>(() => HomeApiService(dio));
-    getIt.registerLazySingleton<HomeRepo>(() => HomeRepo(homeApiService: getIt()));
+
+  //i used another apiservice "homeApiService" first you should register it
+  getIt.registerLazySingleton<HomeApiService>(() => HomeApiService(dio));
+  getIt
+      .registerLazySingleton<HomeRepo>(() => HomeRepo(homeApiService: getIt()));
 }

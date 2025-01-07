@@ -1,5 +1,6 @@
 import 'package:appoment_app/core/routings/app_router.dart';
 import 'package:appoment_app/core/routings/routes.dart';
+import 'package:appoment_app/main.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -9,12 +10,12 @@ class DocApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ScreenUtilInit(
-      designSize:const Size(375, 812),
+      designSize: const Size(375, 812),
       minTextAdapt: true,
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
         onGenerateRoute: appRouter.onGenerateRoute,
-        initialRoute: Routes.homeView,
+        initialRoute: isLogedInUser ? Routes.homeView : Routes.loginScreen,
       ),
     );
   }

@@ -1,3 +1,4 @@
+import 'package:appoment_app/core/helper/app_functions.dart';
 import 'package:appoment_app/features/sign%20up/data/models/sign_up_request_body.dart';
 import 'package:appoment_app/features/sign%20up/data/repos/sign_up_repo.dart';
 import 'package:bloc/bloc.dart';
@@ -33,6 +34,7 @@ class SignUpCubit extends Cubit<SignUpState> {
     );
     res.when(
       success: (responseSuccess) {
+        AppFunctions.saveUserToken(token: responseSuccess.data.token ?? "");
         emit(SignUpSuccess(res));
       },
       failure: (failure) {

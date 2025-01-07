@@ -71,12 +71,12 @@ mixin _$LoginStates<T> {
 /// @nodoc
 abstract class $LoginStatesCopyWith<T, $Res> {
   factory $LoginStatesCopyWith(
-          LoginStates<T> value, $Res Function(LoginStates<T>) then) =
-      _$LoginStatesCopyWithImpl<T, $Res, LoginStates<T>>;
+          LogInStates<T> value, $Res Function(LogInStates<T>) then) =
+      _$LoginStatesCopyWithImpl<T, $Res, LogInStates<T>>;
 }
 
 /// @nodoc
-class _$LoginStatesCopyWithImpl<T, $Res, $Val extends LoginStates<T>>
+class _$LoginStatesCopyWithImpl<T, $Res, $Val extends LogInStates<T>>
     implements $LoginStatesCopyWith<T, $Res> {
   _$LoginStatesCopyWithImpl(this._value, this._then);
 
@@ -202,7 +202,7 @@ class _$InitialImpl<T> implements _Initial<T> {
   }
 }
 
-abstract class _Initial<T> implements LoginStates<T> {
+abstract class _Initial<T> implements LogInStates<T> {
   const factory _Initial() = _$InitialImpl<T>;
 }
 
@@ -319,7 +319,7 @@ class _$LoginLoadingImpl<T> implements LoginLoading<T> {
   }
 }
 
-abstract class LoginLoading<T> implements LoginStates<T> {
+abstract class LoginLoading<T> implements LogInStates<T> {
   const factory LoginLoading() = _$LoginLoadingImpl<T>;
 }
 
@@ -465,7 +465,7 @@ class _$LoginSuccessImpl<T> implements LoginSuccess<T> {
   }
 }
 
-abstract class LoginSuccess<T> implements LoginStates<T> {
+abstract class LoginSuccess<T> implements LogInStates<T> {
   const factory LoginSuccess(final T data) = _$LoginSuccessImpl<T>;
 
   T get data;
@@ -619,7 +619,7 @@ class _$LoginFailureImpl<T> implements LoginFailure<T> {
   }
 }
 
-abstract class LoginFailure<T> implements LoginStates<T> {
+abstract class LoginFailure<T> implements LogInStates<T> {
   const factory LoginFailure({required final String errorMessage}) =
       _$LoginFailureImpl<T>;
 
