@@ -30,7 +30,7 @@ class _CustomSignUpFormState extends State<CustomSignUpForm> {
   late TextEditingController passwordController;
   @override
   void initState() {
-    passwordController = context.read<SignUpCubit>().passwordController;
+    passwordController = context.read<signUpCubit>().passwordController;
     checkPasswordValidations();
     super.initState();
   }
@@ -48,7 +48,7 @@ class _CustomSignUpFormState extends State<CustomSignUpForm> {
 
   @override
   Widget build(BuildContext context) {
-    final signUp = context.read<SignUpCubit>();
+    final signUp = context.read<signUpCubit>();
     return Form(
         key: signUp.signUpFormKey,
         child: Column(

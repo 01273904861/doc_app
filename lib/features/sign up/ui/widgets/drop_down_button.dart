@@ -20,7 +20,7 @@ class _CustomDropdownButtonState extends State<CustomDropdownButton> {
 
   @override
   void initState() {
-    genderController = context.read<SignUpCubit>().genderController;
+    genderController = context.read<signUpCubit>().genderController;
     genderController.text = '0';
     super.initState();
   }

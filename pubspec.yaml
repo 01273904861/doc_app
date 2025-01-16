@@ -81,6 +81,8 @@ dependencies:
   url_launcher: ^6.3.1
   shared_preferences: ^2.3.5
   flutter_secure_storage: ^4.2.1
+  shimmer: ^3.0.0
+  skeletonizer: ^1.4.3
 dev_dependencies:
   #Automatically generate code for converting
   #to and from JSON by annotating Dart classes

@@ -10,9 +10,11 @@ class SignUpBlocListener extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocListener<SignUpCubit, SignUpState>(
+    return BlocListener<signUpCubit, SignUpState>(
       listenWhen: (previous, current) =>
-          current is SignUpLoading || current is SignUpSuccess || current is SignUpFailure,
+          current is SignUpLoading ||
+          current is SignUpSuccess ||
+          current is SignUpFailure,
       listener: (context, state) {
         state.whenOrNull(success: (signUpResponse) {
           context.pop();

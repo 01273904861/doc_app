@@ -20,7 +20,9 @@ class CustomTextFormField extends StatelessWidget {
       this.verticalPadding,
       this.borderRadius,
       this.controller, this.checkValidation});
+      /// The text to be displayed as a hint in the text form field.
   final String hintText;
+  
   final Widget? suffixIcon;
   final Color? enabledBorderColor;
   final Color? focusdBorderColor;

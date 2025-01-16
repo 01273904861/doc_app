@@ -21,6 +21,11 @@ extension Navigation on BuildContext {
   }
 
 }
+//"".isNullOrEmpty
 extension StringExension on String?{
-  bool isNullOrEmpty()=>this == null || this == "";
+  bool isNullOrEmpty()=>this == null || this!.isEmpty;
+}
+//List.isNullOrEmty
+extension ListExension<T> on List<T>?{
+ bool isNullOrEmpty()=>this!.isEmpty || this==null;
 }

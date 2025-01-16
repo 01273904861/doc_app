@@ -18,3 +18,6 @@ class HomeRepo {
   }
 }
 //apiservice - repo - cubit - view 
+//api service has basic functions- 
+//repo call api services and reuturn succes with data or failure with error
+//cubit has functions to emit states based on repo result succes or failure

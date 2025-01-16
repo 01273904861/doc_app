@@ -1,28 +1,35 @@
+import 'package:appoment_app/core/helper/extension.dart';
 import 'package:appoment_app/core/networking/api_error_handler.dart';
+import 'package:appoment_app/core/networking/api_result.dart';
 import 'package:appoment_app/features/home/data/models/get_specialization_model.dart';
 import 'package:appoment_app/features/home/data/repos/home_repo.dart';
 import 'package:bloc/bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-part 'get_specialization_state.dart';
-part 'get_specialization_cubit.freezed.dart';
+part 'home_states.dart';
+part 'home_states.freezed.dart';
 
+///home cubit for get specialization
 class HomeCubit extends Cubit<HomeStates> {
   HomeCubit(this.homeRepo) : super(const HomeStates.specializationInitial());
   final HomeRepo homeRepo;
-  List<SpecializationData>? specializationsDataList = [];
+
+  ///list of specializations
+  List<SpecializationData>? specializationsDataList = <SpecializationData>[];
 
   emitGetSpecialization() async {
     emit(const HomeStates.specializationLoading());
-    final res = await homeRepo.getSpecialization();
+    final ApiResult<GetAllSpecializationsModel> res =
+        await homeRepo.getSpecialization();
     res.when(
-      success: (res) {
-        specializationsDataList = res.data ?? [];
+      success: (GetAllSpecializationsModel res) {
+        specializationsDataList = res.data ?? <SpecializationData>[];
         // get doctors of first id as default
-        getDoctors(specializationId: specializationsDataList?.first.id ?? 0);
+        getDoctorsById(
+            specializationId: specializationsDataList?.first.id ?? 0);
         emit(HomeStates.specializationSuccess(specializationsDataList));
       },
-      failure: (resError) {
+      failure: (ErrorHandler resError) {
         emit(HomeStates.specializationFailure(errorHandler: resError));
       },
     );
@@ -30,22 +37,24 @@ class HomeCubit extends Cubit<HomeStates> {
 
   List<DoctorModel>? getAllSpecializationsDoctors(
       List<SpecializationData> dataList) {
-    List<DoctorModel> doctorsList = [];
-    for (var element in dataList) {
-      for (var doctor in element.doctors!) {
+    final List<DoctorModel> doctorsList = <DoctorModel>[];
+    for (final SpecializationData element in dataList) {
+      for (final DoctorModel doctor in element.doctors!) {
         doctorsList.add(doctor);
       }
     }
     return null;
   }
 
-  void getDoctors({required int specializationId}) {
-    List<DoctorModel>? doctorsList = [];
+  ///get all doctors of specializations
+  void getDoctorsById({required int specializationId}) {
+    List<DoctorModel>? doctorsList = <DoctorModel>[];
 
     doctorsList = specializationsDataList
-        ?.firstWhere((specialization) => specialization.id == specializationId)
+        ?.firstWhere((SpecializationData specialization) =>
+            specialization.id == specializationId)
         .doctors;
-    if (doctorsList?.isEmpty ?? true) {
+    if (doctorsList.isNullOrEmpty()) {
       emit(
         const HomeStates.doctorsFailure(errorMessage: 'docotors not found'),
       );
