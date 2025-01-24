@@ -1,7 +1,9 @@
 import 'package:appoment_app/core/di/dependency_injection.dart';
 import 'package:appoment_app/core/routings/routes.dart';
+import 'package:appoment_app/features/home/data/models/get_specialization_model.dart';
 import 'package:appoment_app/features/home/ui/views/home_screen.dart';
 import 'package:appoment_app/features/home/logic/home_cubit.dart';
+import 'package:appoment_app/features/home/ui/views/recommendation_doctors_screen.dart';
 import 'package:appoment_app/features/login/logic/cubit/login_cubit.dart';
 import 'package:appoment_app/features/login/login_screen.dart';
 import 'package:appoment_app/features/onboarding/onboarding_screen.dart';
@@ -37,6 +39,13 @@ class AppRouter {
           return BlocProvider(
             create: (context) => HomeCubit(getIt())..emitGetSpecialization(),
             child: const HomeView(),
+          );
+        });
+         case Routes.recommendatioDoctorsScreen:
+        return MaterialPageRoute(builder: (_) {
+          return BlocProvider(
+            create: (context) => HomeCubit(getIt())..emitGetSpecialization(),
+            child:  RecommendationDoctorsScreen(allDoctors: settings.arguments! as List<DoctorModel>,),
           );
         });
       default:
