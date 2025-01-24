@@ -16,7 +16,7 @@ class HomeCubit extends Cubit<HomeStates> {
 
   ///list of specializations
   List<SpecializationData>? specializationsDataList = <SpecializationData>[];
-
+  List<DoctorModel> allDoctors = [];
   emitGetSpecialization() async {
     emit(const HomeStates.specializationLoading());
     final ApiResult<GetAllSpecializationsModel> res =
@@ -27,6 +27,7 @@ class HomeCubit extends Cubit<HomeStates> {
         // get doctors of first id as default
         getDoctorsById(
             specializationId: specializationsDataList?.first.id ?? 0);
+            getAllSpecializationsDoctors();
         emit(HomeStates.specializationSuccess(specializationsDataList));
       },
       failure: (ErrorHandler resError) {
@@ -36,13 +37,15 @@ class HomeCubit extends Cubit<HomeStates> {
   }
 
   List<DoctorModel>? getAllSpecializationsDoctors(
-      List<SpecializationData> dataList) {
-    final List<DoctorModel> doctorsList = <DoctorModel>[];
-    for (final SpecializationData element in dataList) {
-      for (final DoctorModel doctor in element.doctors!) {
-        doctorsList.add(doctor);
+      ) {
+
+    for (final SpecializationData specialization in specializationsDataList ?? []) {
+      for (final DoctorModel doctor in specialization.doctors!) {
+        allDoctors.add(doctor);
+        print('**************************' +  allDoctors[0].name!);
       }
     }
+   
     return null;
   }
 

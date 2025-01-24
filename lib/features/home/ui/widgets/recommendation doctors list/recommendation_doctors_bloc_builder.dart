@@ -1,3 +1,5 @@
+import 'package:appoment_app/core/helper/extension.dart';
+import 'package:appoment_app/core/routings/routes.dart';
 import 'package:appoment_app/core/theming/app_images.dart';
 import 'package:appoment_app/features/home/ui/widgets/recommendation%20doctors%20list/recommendation_doctors_shimmer.dart.dart';
 import 'package:appoment_app/features/home/data/models/get_specialization_model.dart';
@@ -8,15 +10,22 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class RecommendationDoctorsBlocBuilder extends StatelessWidget {
-  const RecommendationDoctorsBlocBuilder({super.key});
-
+   RecommendationDoctorsBlocBuilder({super.key});
   @override
   Widget build(BuildContext context) {
+   final List<DoctorModel?> allDoctors = BlocProvider.of<HomeCubit>(context).allDoctors;
+
+
     return Expanded(
       child: Column(
         children: <Widget>[
-          const SectionsHeaderAndSeeAll(
-            title: 'Recommendation Doctor',
+          GestureDetector(
+            onTap: () {
+              context.pushNamed(Routes.recommendatioDoctorsScreen ,  args: allDoctors);
+            },
+            child: const SectionsHeaderAndSeeAll(
+              title: 'Recommendation Doctor',
+            ),
           ),
           BlocBuilder<HomeCubit, HomeStates>(
               buildWhen: (HomeStates previous, HomeStates current) =>
@@ -30,8 +39,9 @@ class RecommendationDoctorsBlocBuilder extends StatelessWidget {
                     specializationLoading: () =>
                         const RecommendationDoctorsShimmer(),
                     doctorsSuccess: (List<DoctorModel?>? doctorsList) =>
+                      
                         setUpSuccess(doctorsList),
-                    orElse: () => const SizedBox.shrink());
+                    orElse: () => const Center(child: Text('empty list'),));
               })
         ],
       ),
@@ -40,6 +50,7 @@ class RecommendationDoctorsBlocBuilder extends StatelessWidget {
 
   Widget setUpSuccess(doctorsList) {
     final List<DoctorModel?>? doctorsModelsList = doctorsList;
+
     return RecommendationsDoctorListView(
         doctorsModel: doctorsModelsList ?? <DoctorModel>[]);
   }
@@ -47,98 +58,23 @@ class RecommendationDoctorsBlocBuilder extends StatelessWidget {
   Widget setUpFailure(errorMessage) {
     return const SizedBox.shrink();
   }
-
-  
 }
 
-
-
-
 List<DoctorModel> getDummyList() {
-    return <DoctorModel>[
-      DoctorModel(
-          10,
-          'name',
-          'phone',
-          Assets.assetsImagesDoctor,
-          'address',
-          'description',
-          'degree',
-          10,
-          'startTime',
-          'endTime',
-          CityModel(id: 0)),
-      DoctorModel(
-          10,
-          'name',
-          'phone',
-          Assets.assetsImagesDoctor,
-          'address',
-          'description',
-          'degree',
-          10,
-          'startTime',
-          'endTime',
-          CityModel(id: 0)),
-      DoctorModel(
-          10,
-          'name',
-          'phone',
-          Assets.assetsImagesDoctor,
-          'address',
-          'description',
-          'degree',
-          10,
-          'startTime',
-          'endTime',
-          CityModel(id: 0)),
-      DoctorModel(
-          10,
-          'name',
-          'phone',
-          Assets.assetsImagesDoctor,
-          'address',
-          'description',
-          'degree',
-          10,
-          'startTime',
-          'endTime',
-          CityModel(id: 0)),
-      DoctorModel(
-          10,
-          'name',
-          'phone',
-          Assets.assetsImagesDoctor,
-          'address',
-          'description',
-          'degree',
-          10,
-          'startTime',
-          'endTime',
-          CityModel(id: 0)),
-      DoctorModel(
-          10,
-          'name',
-          'phone',
-          Assets.assetsImagesDoctor,
-          'address',
-          'description',
-          'degree',
-          10,
-          'startTime',
-          'endTime',
-          CityModel(id: 0)),
-      DoctorModel(
-          10,
-          'name',
-          'phone',
-          Assets.assetsImagesDoctor,
-          'address',
-          'description',
-          'degree',
-          10,
-          'startTime',
-          'endTime',
-          CityModel(id: 0)),
-    ];
-  }
+  return <DoctorModel>[
+    DoctorModel(10, 'name', 'phone', Assets.assetsImagesDoctor, 'address',
+        'description', 'degree', 10, 'startTime', 'endTime', CityModel(id: 0)),
+    DoctorModel(10, 'name', 'phone', Assets.assetsImagesDoctor, 'address',
+        'description', 'degree', 10, 'startTime', 'endTime', CityModel(id: 0)),
+    DoctorModel(10, 'name', 'phone', Assets.assetsImagesDoctor, 'address',
+        'description', 'degree', 10, 'startTime', 'endTime', CityModel(id: 0)),
+    DoctorModel(10, 'name', 'phone', Assets.assetsImagesDoctor, 'address',
+        'description', 'degree', 10, 'startTime', 'endTime', CityModel(id: 0)),
+    DoctorModel(10, 'name', 'phone', Assets.assetsImagesDoctor, 'address',
+        'description', 'degree', 10, 'startTime', 'endTime', CityModel(id: 0)),
+    DoctorModel(10, 'name', 'phone', Assets.assetsImagesDoctor, 'address',
+        'description', 'degree', 10, 'startTime', 'endTime', CityModel(id: 0)),
+    DoctorModel(10, 'name', 'phone', Assets.assetsImagesDoctor, 'address',
+        'description', 'degree', 10, 'startTime', 'endTime', CityModel(id: 0)),
+  ];
+}

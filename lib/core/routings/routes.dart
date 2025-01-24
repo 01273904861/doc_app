@@ -3,4 +3,5 @@
   static const loginScreen  = '/loginScreen';
   static const signUpScreen  = '/signUpScreen';
   static const homeView  = '/HomeView';
+  static const recommendatioDoctorsScreen = '/recommendatioDoctorsScreen';
 }
