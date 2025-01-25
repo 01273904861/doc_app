@@ -21,31 +21,26 @@ class AppFunctions {
     }
     return null;
   }
- static Future<void> saveUserToken({required String token}) async{
-  await  SharedPrefHelper.setSecuredData(SharedPrefKeys.userTokenKey, token);
+
+  static Future<void> saveUserToken({required String token}) async {
+    await SharedPrefHelper.setSecuredData(SharedPrefKeys.userTokenKey, token);
     DioFactory.addTokenAfterLogin(token: token);
   }
 
+  static List<DoctorModel?>? searchDoctors(
+      {required List<DoctorModel> doctors, required String doctorName}) {
+    if (doctors.isNullOrEmpty()) return <DoctorModel?>[];
 
+    return doctors
+        .where((DoctorModel doctor) =>
+            doctor.name?.toLowerCase().contains(doctorName.toLowerCase()) ??
+            false)
+        .toList();
 
-  static List<DoctorModel?>? searchDoctors({
-  required List<DoctorModel> doctors,
-  required String doctorName,
-}) {
-  if (doctors.isNullOrEmpty()) return <DoctorModel?>[];
-  
-  return doctors
-      .where((DoctorModel doctor) =>
-          doctor.name?.toLowerCase().contains(doctorName.toLowerCase()) ??
-          false)
-      .toList();
-
-       
-  // return doctors
-  //     .where((DoctorModel doctor) =>
-  //         doctor.name?.toLowerCase().startsWith(doctorName.toLowerCase()) ??
-  //         false)
-  //     .toList();
-}
-
+    // return doctors
+    //     .where((DoctorModel doctor) =>
+    //         doctor.name?.toLowerCase().startsWith(doctorName.toLowerCase()) ??
+    //         false)
+    //     .toList();
+  }
 }

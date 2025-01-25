@@ -29,7 +29,7 @@ environment:
 # versions available, run `flutter pub outdated`.
 dependencies:
   #freezed Code generation for immutable classes
-  freezed: ^2.5.2
+  freezed: ^2.5.7
   #Annotations for the freezed code-generator.
   freezed_annotation: ^2.4.4
   #Classes and helper functions that support JSON code generation

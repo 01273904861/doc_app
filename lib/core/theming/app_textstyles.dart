@@ -30,10 +30,12 @@ class AppTextstyles {
     color: AppColors.mainBlue,
     fontSize: 24.sp,
   );
+
   static TextStyle font14GreyRegular = TextStyle(
     fontWeight: AppFontWeightHelper.regular,
     color: AppColors.grey,
     fontSize: 14.sp,
+    height: 1.5,
   );
   static TextStyle font14LigtGreyRegular = TextStyle(
     fontWeight: AppFontWeightHelper.regular,
@@ -80,5 +82,12 @@ class AppTextstyles {
     fontWeight: AppFontWeightHelper.meduim,
     color: AppColors.lighterGrey,
     fontSize: 12.sp,
+  );
+
+  ///title of appBar
+  static TextStyle font18BlackSemiBold = TextStyle(
+    fontWeight: AppFontWeightHelper.semiBold,
+    color: Colors.black,
+    fontSize: 18.sp,
   );
 }

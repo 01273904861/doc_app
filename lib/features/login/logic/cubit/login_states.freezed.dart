@@ -15,7 +15,7 @@ final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
-mixin _$LoginStates<T> {
+mixin _$LogInStates<T> {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
@@ -69,23 +69,23 @@ mixin _$LoginStates<T> {
 }
 
 /// @nodoc
-abstract class $LoginStatesCopyWith<T, $Res> {
-  factory $LoginStatesCopyWith(
+abstract class $LogInStatesCopyWith<T, $Res> {
+  factory $LogInStatesCopyWith(
           LogInStates<T> value, $Res Function(LogInStates<T>) then) =
-      _$LoginStatesCopyWithImpl<T, $Res, LogInStates<T>>;
+      _$LogInStatesCopyWithImpl<T, $Res, LogInStates<T>>;
 }
 
 /// @nodoc
-class _$LoginStatesCopyWithImpl<T, $Res, $Val extends LogInStates<T>>
-    implements $LoginStatesCopyWith<T, $Res> {
-  _$LoginStatesCopyWithImpl(this._value, this._then);
+class _$LogInStatesCopyWithImpl<T, $Res, $Val extends LogInStates<T>>
+    implements $LogInStatesCopyWith<T, $Res> {
+  _$LogInStatesCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
 
-  /// Create a copy of LoginStates
+  /// Create a copy of LogInStates
   /// with the given fields replaced by the non-null parameter values.
 }
 
@@ -98,13 +98,13 @@ abstract class _$$InitialImplCopyWith<T, $Res> {
 
 /// @nodoc
 class __$$InitialImplCopyWithImpl<T, $Res>
-    extends _$LoginStatesCopyWithImpl<T, $Res, _$InitialImpl<T>>
+    extends _$LogInStatesCopyWithImpl<T, $Res, _$InitialImpl<T>>
     implements _$$InitialImplCopyWith<T, $Res> {
   __$$InitialImplCopyWithImpl(
       _$InitialImpl<T> _value, $Res Function(_$InitialImpl<T>) _then)
       : super(_value, _then);
 
-  /// Create a copy of LoginStates
+  /// Create a copy of LogInStates
   /// with the given fields replaced by the non-null parameter values.
 }
 
@@ -115,7 +115,7 @@ class _$InitialImpl<T> implements _Initial<T> {
 
   @override
   String toString() {
-    return 'LoginStates<$T>.initial()';
+    return 'LogInStates<$T>.initial()';
   }
 
   @override
@@ -215,13 +215,13 @@ abstract class _$$LoginLoadingImplCopyWith<T, $Res> {
 
 /// @nodoc
 class __$$LoginLoadingImplCopyWithImpl<T, $Res>
-    extends _$LoginStatesCopyWithImpl<T, $Res, _$LoginLoadingImpl<T>>
+    extends _$LogInStatesCopyWithImpl<T, $Res, _$LoginLoadingImpl<T>>
     implements _$$LoginLoadingImplCopyWith<T, $Res> {
   __$$LoginLoadingImplCopyWithImpl(
       _$LoginLoadingImpl<T> _value, $Res Function(_$LoginLoadingImpl<T>) _then)
       : super(_value, _then);
 
-  /// Create a copy of LoginStates
+  /// Create a copy of LogInStates
   /// with the given fields replaced by the non-null parameter values.
 }
 
@@ -232,7 +232,7 @@ class _$LoginLoadingImpl<T> implements LoginLoading<T> {
 
   @override
   String toString() {
-    return 'LoginStates<$T>.loading()';
+    return 'LogInStates<$T>.loading()';
   }
 
   @override
@@ -334,13 +334,13 @@ abstract class _$$LoginSuccessImplCopyWith<T, $Res> {
 
 /// @nodoc
 class __$$LoginSuccessImplCopyWithImpl<T, $Res>
-    extends _$LoginStatesCopyWithImpl<T, $Res, _$LoginSuccessImpl<T>>
+    extends _$LogInStatesCopyWithImpl<T, $Res, _$LoginSuccessImpl<T>>
     implements _$$LoginSuccessImplCopyWith<T, $Res> {
   __$$LoginSuccessImplCopyWithImpl(
       _$LoginSuccessImpl<T> _value, $Res Function(_$LoginSuccessImpl<T>) _then)
       : super(_value, _then);
 
-  /// Create a copy of LoginStates
+  /// Create a copy of LogInStates
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
@@ -366,7 +366,7 @@ class _$LoginSuccessImpl<T> implements LoginSuccess<T> {
 
   @override
   String toString() {
-    return 'LoginStates<$T>.success(data: $data)';
+    return 'LogInStates<$T>.success(data: $data)';
   }
 
   @override
@@ -381,7 +381,7 @@ class _$LoginSuccessImpl<T> implements LoginSuccess<T> {
   int get hashCode =>
       Object.hash(runtimeType, const DeepCollectionEquality().hash(data));
 
-  /// Create a copy of LoginStates
+  /// Create a copy of LogInStates
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
@@ -470,7 +470,7 @@ abstract class LoginSuccess<T> implements LogInStates<T> {
 
   T get data;
 
-  /// Create a copy of LoginStates
+  /// Create a copy of LogInStates
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
   _$$LoginSuccessImplCopyWith<T, _$LoginSuccessImpl<T>> get copyWith =>
@@ -488,13 +488,13 @@ abstract class _$$LoginFailureImplCopyWith<T, $Res> {
 
 /// @nodoc
 class __$$LoginFailureImplCopyWithImpl<T, $Res>
-    extends _$LoginStatesCopyWithImpl<T, $Res, _$LoginFailureImpl<T>>
+    extends _$LogInStatesCopyWithImpl<T, $Res, _$LoginFailureImpl<T>>
     implements _$$LoginFailureImplCopyWith<T, $Res> {
   __$$LoginFailureImplCopyWithImpl(
       _$LoginFailureImpl<T> _value, $Res Function(_$LoginFailureImpl<T>) _then)
       : super(_value, _then);
 
-  /// Create a copy of LoginStates
+  /// Create a copy of LogInStates
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
@@ -520,7 +520,7 @@ class _$LoginFailureImpl<T> implements LoginFailure<T> {
 
   @override
   String toString() {
-    return 'LoginStates<$T>.failure(errorMessage: $errorMessage)';
+    return 'LogInStates<$T>.failure(errorMessage: $errorMessage)';
   }
 
   @override
@@ -535,7 +535,7 @@ class _$LoginFailureImpl<T> implements LoginFailure<T> {
   @override
   int get hashCode => Object.hash(runtimeType, errorMessage);
 
-  /// Create a copy of LoginStates
+  /// Create a copy of LogInStates
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
@@ -625,7 +625,7 @@ abstract class LoginFailure<T> implements LogInStates<T> {
 
   String get errorMessage;
 
-  /// Create a copy of LoginStates
+  /// Create a copy of LogInStates
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
   _$$LoginFailureImplCopyWith<T, _$LoginFailureImpl<T>> get copyWith =>

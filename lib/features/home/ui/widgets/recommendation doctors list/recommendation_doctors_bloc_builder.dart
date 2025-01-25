@@ -30,7 +30,7 @@ class RecommendationDoctorsBlocBuilder extends StatelessWidget {
           BlocBuilder<HomeCubit, HomeStates>(
               buildWhen: (HomeStates previous, HomeStates current) =>
                   current is DoctorsFailure ||
-                  current is DoctorsLoading ||
+                 
                   current is DoctorsSuccess,
               builder: (BuildContext context, HomeStates states) {
                 return states.maybeWhen(
