@@ -1,4 +1,6 @@
+import 'package:appoment_app/core/helper/extension.dart';
 import 'package:appoment_app/core/helper/spacing.dart';
+import 'package:appoment_app/core/routings/routes.dart';
 import 'package:appoment_app/core/theming/app_images.dart';
 import 'package:appoment_app/core/theming/app_textstyles.dart';
 import 'package:appoment_app/core/theming/fontweight_helpr.dart';
@@ -14,44 +16,49 @@ class RecommendationDoctorsListviewItem extends StatelessWidget {
   final DoctorModel? doctorModel;
   @override
   Widget build(BuildContext context) {
-    return Container(
-      margin: const EdgeInsets.only(bottom: 15),
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(16.r),
-      ),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.start,
-        children: [
-          Container(
-            width: 110.w,
-            height: 110.h,
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(10.r),
-            ),
-            child: Image.asset(
-              Assets.assetsImagesDoctor,
-            ),
-          ),
-          horizontalSpace(10),
-          Column(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(
-                doctorModel?.name ?? 'abdullah',
-                style: AppTextstyles.font16WhiteSemiBold
-                    .copyWith(color: Colors.black),
+    return GestureDetector(
+      onTap: (){
+        context.pushNamed(Routes.doctorDetailsScreen , args: doctorModel);
+      },
+      child: Container(
+        margin:  EdgeInsets.only(bottom: 15.h),
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(16.r),
+        ),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.start,
+          children: [
+            Container(
+              width: 110.w,
+              height: 110.h,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(10.r),
               ),
-              verticalSpace(10),
-              Text(
-             '${doctorModel?.degree} | ${doctorModel?.phone}'
-              ,
-                style: AppTextstyles.font12LigtGreyRegular
-                    .copyWith(fontWeight: AppFontWeightHelper.meduim),
+              child: Image.asset(
+                Assets.assetsImagesDoctor,
               ),
-            ],
-          )
-        ],
+            ),
+            horizontalSpace(10),
+            Column(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  doctorModel?.name ?? 'abdullah',
+                  style: AppTextstyles.font16WhiteSemiBold
+                      .copyWith(color: Colors.black),
+                ),
+                verticalSpace(10),
+                Text(
+               '${doctorModel?.degree} | ${doctorModel?.phone}'
+                ,
+                  style: AppTextstyles.font12LigtGreyRegular
+                      .copyWith(fontWeight: AppFontWeightHelper.meduim),
+                ),
+              ],
+            )
+          ],
+        ),
       ),
     );
   }

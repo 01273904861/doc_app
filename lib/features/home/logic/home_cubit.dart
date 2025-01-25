@@ -2,12 +2,14 @@ import 'package:appoment_app/core/helper/extension.dart';
 import 'package:appoment_app/core/networking/api_error_handler.dart';
 import 'package:appoment_app/core/networking/api_result.dart';
 import 'package:appoment_app/features/home/data/models/get_specialization_model.dart';
+import 'package:appoment_app/features/home/data/models/make_appointment_request_model.dart';
+import 'package:appoment_app/features/home/data/models/make_appointment_response_model.dart';
 import 'package:appoment_app/features/home/data/repos/home_repo.dart';
 import 'package:bloc/bloc.dart';
+import 'package:flutter/foundation.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-
+part 'home_cubit.freezed.dart';
 part 'home_states.dart';
-part 'home_states.freezed.dart';
 
 ///home cubit for get specialization
 class HomeCubit extends Cubit<HomeStates> {
@@ -16,8 +18,8 @@ class HomeCubit extends Cubit<HomeStates> {
 
   ///list of specializations
   List<SpecializationData>? specializationsDataList = <SpecializationData>[];
-  List<DoctorModel> allDoctors = [];
-  emitGetSpecialization() async {
+  List<DoctorModel> allDoctors = <DoctorModel>[];
+  Future<void> emitGetSpecialization() async {
     emit(const HomeStates.specializationLoading());
     final ApiResult<GetAllSpecializationsModel> res =
         await homeRepo.getSpecialization();
@@ -27,7 +29,7 @@ class HomeCubit extends Cubit<HomeStates> {
         // get doctors of first id as default
         getDoctorsById(
             specializationId: specializationsDataList?.first.id ?? 0);
-            getAllSpecializationsDoctors();
+        getAllSpecializationsDoctors();
         emit(HomeStates.specializationSuccess(specializationsDataList));
       },
       failure: (ErrorHandler resError) {
@@ -36,16 +38,15 @@ class HomeCubit extends Cubit<HomeStates> {
     );
   }
 
-  List<DoctorModel>? getAllSpecializationsDoctors(
-      ) {
-
-    for (final SpecializationData specialization in specializationsDataList ?? []) {
+  List<DoctorModel>? getAllSpecializationsDoctors() {
+    for (final SpecializationData specialization
+        in specializationsDataList ?? <SpecializationData>[]) {
       for (final DoctorModel doctor in specialization.doctors!) {
         allDoctors.add(doctor);
-        print('**************************' +  allDoctors[0].name!);
+        print('**************************${allDoctors[0].name!}');
       }
     }
-   
+
     return null;
   }
 
@@ -64,5 +65,19 @@ class HomeCubit extends Cubit<HomeStates> {
     } else {
       emit(HomeStates.doctorsSuccess(doctorsList));
     }
+  }
+
+  Future<void> emitMakeAppointment(
+      {required MakeAppointmentRequestModel
+          makeAppointmentRequestModel}) async {
+    emit(const MakeAppointmentLoading());
+    final ApiResult res = await homeRepo.makeAppointment(
+        makeAppointmentRequestModel: makeAppointmentRequestModel);
+
+    res.when(success: (succesRes) {
+      emit(MakeAppointmentSucces(succesRes));
+    }, failure: (ErrorHandler failureRes) {
+      emit(MakeAppointmentFailure(e: ErrorHandler.handle(failureRes)));
+    });
   }
 }

@@ -1,6 +1,7 @@
 import 'package:appoment_app/core/di/dependency_injection.dart';
 import 'package:appoment_app/core/routings/routes.dart';
 import 'package:appoment_app/features/home/data/models/get_specialization_model.dart';
+import 'package:appoment_app/features/home/ui/views/doctor_details_screen.dart';
 import 'package:appoment_app/features/home/ui/views/home_screen.dart';
 import 'package:appoment_app/features/home/logic/home_cubit.dart';
 import 'package:appoment_app/features/home/ui/views/recommendation_doctors_screen.dart';
@@ -23,30 +24,34 @@ class AppRouter {
       case Routes.loginScreen:
         return MaterialPageRoute(builder: (_) {
           return BlocProvider(
-            create: (context) => getIt<LogInCubit>(),
+            create: (BuildContext context) => getIt<LogInCubit>(),
             child: const LogInScreen(),
           );
         });
       case Routes.signUpScreen:
         return MaterialPageRoute(builder: (_) {
           return BlocProvider(
-            create: (context) => getIt<signUpCubit>(),
+            create: (BuildContext context) => getIt<signUpCubit>(),
             child: const SignUpScreen(),
           );
         });
       case Routes.homeView:
         return MaterialPageRoute(builder: (_) {
           return BlocProvider(
-            create: (context) => HomeCubit(getIt())..emitGetSpecialization(),
+            create: (BuildContext context) =>
+                HomeCubit(getIt())..emitGetSpecialization(),
             child: const HomeView(),
           );
         });
-         case Routes.recommendatioDoctorsScreen:
+      case Routes.recommendatioDoctorsScreen:
         return MaterialPageRoute(builder: (_) {
-          return BlocProvider(
-            create: (context) => HomeCubit(getIt())..emitGetSpecialization(),
-            child:  RecommendationDoctorsScreen(allDoctors: settings.arguments! as List<DoctorModel>,),
+          return RecommendationDoctorsScreen(
+            allDoctors: settings.arguments! as List<DoctorModel>,
           );
+        });
+      case Routes.doctorDetailsScreen:
+        return MaterialPageRoute(builder: (_) {
+          return  DoctorDetailsScreen(doctorModel: settings.arguments as DoctorModel,);
         });
       default:
         return null;

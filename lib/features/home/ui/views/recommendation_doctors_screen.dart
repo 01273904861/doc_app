@@ -34,7 +34,7 @@ class _RecommendationDoctorsScreenState
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
-        title: const Text('Recommendation Doctors'),
+        title:  Text('Recommendation Doctors', style: AppTextstyles.font18BlackSemiBold,),
       ),
       body: Padding(
         padding: EdgeInsets.symmetric(horizontal: 8.w),

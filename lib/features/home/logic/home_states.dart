@@ -1,7 +1,7 @@
 part of 'home_cubit.dart';
 
 @freezed
-class HomeStates<T> with _$GetSpecializationState {
+class HomeStates<T> with _$HomeStates<T> {
   //specialization
   const factory HomeStates.specializationInitial() = _SpecializationInitial;
   const factory HomeStates.specializationLoading() = SpecializationLoading;
@@ -14,4 +14,10 @@ class HomeStates<T> with _$GetSpecializationState {
       DoctorsSuccess;
   const factory HomeStates.doctorsFailure({required String errorMessage}) =
       DoctorsFailure;
+
+  const factory HomeStates.makeAppointmentLoading() = MakeAppointmentLoading;
+  const factory HomeStates.makeAppoinmentSucces(T data) =
+      MakeAppointmentSucces<T>;
+  const factory HomeStates.makeAppointmentFailure({required ErrorHandler e}) =
+      MakeAppointmentFailure;
 }

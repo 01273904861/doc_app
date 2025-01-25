@@ -1,6 +1,8 @@
 import 'package:appoment_app/core/networking/api_constants.dart';
 import 'package:appoment_app/features/home/data/apis/home_api_constants.dart';
 import 'package:appoment_app/features/home/data/models/get_specialization_model.dart';
+import 'package:appoment_app/features/home/data/models/make_appointment_request_model.dart';
+import 'package:appoment_app/features/home/data/models/make_appointment_response_model.dart';
 import 'package:dio/dio.dart';
 import 'package:retrofit/retrofit.dart';
 part 'home_api_service.g.dart';
@@ -11,4 +13,7 @@ abstract class HomeApiService {
 
   @GET(HomeApiConstants.getSpecializations)
   Future<GetAllSpecializationsModel> getSpecialization();
+
+  Future<MakeAppointmentResponseModel> makeAppointment(
+      @Body() MakeAppointmentRequestModel makeAppointmentRequestModel);
 }
