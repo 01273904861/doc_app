@@ -38,6 +38,8 @@ class signUpCubit extends Cubit<SignUpState> {
     res.when(
       success: (SignUpResponseModel responseSuccess) {
         AppFunctions.saveUserToken(token: responseSuccess.data.token ?? '');
+        AppFunctions.saveUserData(
+            emailController.text, passwordController.text);
         emit(SignUpSuccess(res));
       },
       failure: (ErrorHandler failure) {

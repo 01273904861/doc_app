@@ -1,9 +1,11 @@
 import 'package:appoment_app/core/helper/app_reg_exp.dart';
 import 'package:appoment_app/core/helper/app_functions.dart';
+import 'package:appoment_app/core/helper/extension.dart';
 import 'package:appoment_app/core/helper/spacing.dart';
 import 'package:appoment_app/core/theming/app_textstyles.dart';
 import 'package:appoment_app/core/widgets/app_button.dart';
 import 'package:appoment_app/core/widgets/custom_text_form_field.dart';
+import 'package:appoment_app/features/login/data/models/log_in_request_body_model.dart';
 import 'package:appoment_app/features/login/logic/cubit/login_cubit.dart';
 import 'package:appoment_app/features/login/ui/widgets/password_validations.dart';
 import 'package:flutter/material.dart';
@@ -23,10 +25,17 @@ class _CustomLogInFormState extends State<CustomLogInForm> {
   bool hasDigits = false;
   bool hasSpecialCharcters = false;
   bool has8Chars = false;
-  late TextEditingController passwordController;
+  TextEditingController emailController = TextEditingController();
+  TextEditingController passwordController = TextEditingController();
   @override
-  void initState() {
-    passwordController = context.read<LogInCubit>().passwordController;
+  initState() {
+    AppFunctions.getUserData().then((LoginRequestBodyModel model) {
+      if (!model.email.isNullOrEmpty()) {
+        emailController = TextEditingController(text: model.email);
+        passwordController = TextEditingController(text: model.password);
+      }
+      setState(() {});
+    });
     passwordContollerChanges();
     super.initState();
   }
@@ -46,20 +55,20 @@ class _CustomLogInFormState extends State<CustomLogInForm> {
 
   @override
   Widget build(BuildContext context) {
-    final loginCubit = context.read<LogInCubit>();
+    final LogInCubit loginCubit = context.read<LogInCubit>();
 
     return Form(
         key: loginCubit.signInFormKey,
         child: Column(
-          children: [
+          children: <Widget>[
             CustomTextFormField(
               checkValidation: AppFunctions().checkEmailValidation,
-              controller: loginCubit.emailController,
+              controller: emailController,
               hintText: 'email',
             ),
             verticalSpace(20),
             CustomTextFormField(
-              controller: loginCubit.passwordController,
+              controller: passwordController,
               hintText: 'password',
               suffixIcon: GestureDetector(
                 onTap: () {
@@ -92,7 +101,9 @@ class _CustomLogInFormState extends State<CustomLogInForm> {
             AppButton(
               onPressed: () {
                 if (loginCubit.signInFormKey.currentState!.validate()) {
-                  loginCubit.emitLoginStates();
+                  loginCubit.emitLoginStates(
+                      email: emailController.text,
+                      password: passwordController.text);
                 }
               },
               title: 'log in',
