@@ -9,6 +9,23 @@ part of 'make_appointment_response_model.dart';
 MakeAppointmentResponseModel _$MakeAppointmentResponseModelFromJson(
         Map<String, dynamic> json) =>
     MakeAppointmentResponseModel(
+      message: json['message'] as String?,
+      data: json['data'] == null
+          ? null
+          : MakeAppointmentResponseDataModel.fromJson(
+              json['data'] as Map<String, dynamic>),
+    );
+
+Map<String, dynamic> _$MakeAppointmentResponseModelToJson(
+        MakeAppointmentResponseModel instance) =>
+    <String, dynamic>{
+      'message': instance.message,
+      'data': instance.data,
+    };
+
+MakeAppointmentResponseDataModel _$MakeAppointmentResponseDataModelFromJson(
+        Map<String, dynamic> json) =>
+    MakeAppointmentResponseDataModel(
       id: (json['id'] as num?)?.toInt(),
       doctor: json['doctor'] == null
           ? null
@@ -20,11 +37,11 @@ MakeAppointmentResponseModel _$MakeAppointmentResponseModelFromJson(
       appointment_end_time: json['appointment_end_time'] as String?,
       status: json['status'] as String?,
       notes: json['notes'] as String?,
-      appointment_price: json['appointment_price'] as String?,
+      appointment_price: (json['appointment_price'] as num?)?.toDouble(),
     );
 
-Map<String, dynamic> _$MakeAppointmentResponseModelToJson(
-        MakeAppointmentResponseModel instance) =>
+Map<String, dynamic> _$MakeAppointmentResponseDataModelToJson(
+        MakeAppointmentResponseDataModel instance) =>
     <String, dynamic>{
       'id': instance.id,
       'doctor': instance.doctor,
@@ -41,7 +58,7 @@ PatientModel _$PatientModelFromJson(Map<String, dynamic> json) => PatientModel(
       name: json['name'] as String?,
       email: json['email'] as String?,
       phone: json['phone'] as String?,
-      gender: (json['gender'] as num?)?.toInt(),
+      gender: json['gender'] as String?,
     );
 
 Map<String, dynamic> _$PatientModelToJson(PatientModel instance) =>

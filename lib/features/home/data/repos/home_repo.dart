@@ -18,9 +18,9 @@ class HomeRepo {
     }
   }
 
-  Future<ApiResult> makeAppointment({required MakeAppointmentRequestModel makeAppointmentRequestModel}) async {
+  Future<ApiResult<MakeAppointmentResponseModel>> makeAppointment({required MakeAppointmentRequestModel makeAppointmentRequestModel}) async {
     try {
-      final MakeAppointmentResponseModel res =
+      final  res =
           await homeApiService.makeAppointment(makeAppointmentRequestModel);
       return ApiResult.success(res);
     } on Exception catch (e) {

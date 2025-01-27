@@ -1,8 +1,11 @@
- class Routes{
-  static const onBoardingScreen  = '/onBoardingScreen';
-  static const loginScreen  = '/loginScreen';
-  static const signUpScreen  = '/signUpScreen';
-  static const homeView  = '/HomeView';
-  static const recommendatioDoctorsScreen = '/recommendatioDoctorsScreen';
-  static const doctorDetailsScreen = '/doctorDetailsScreen';
+class Routes {
+  static const String onBoardingScreen = '/onBoardingScreen';
+  static const String loginScreen = '/loginScreen';
+  static const String signUpScreen = '/signUpScreen';
+  static const String homeView = '/HomeView';
+  static const String recommendatioDoctorsScreen =
+      '/recommendatioDoctorsScreen';
+  static const String doctorDetailsScreen = '/doctorDetailsScreen';
+  static const String makeAppointmentDetailsScreen =
+      '/appointmentDetailsScreen';
 }

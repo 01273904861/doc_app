@@ -37,20 +37,19 @@ class HomeCubit extends Cubit<HomeStates> {
       },
     );
   }
+  ///get all doctors of specializations
 
   List<DoctorModel>? getAllSpecializationsDoctors() {
     for (final SpecializationData specialization
         in specializationsDataList ?? <SpecializationData>[]) {
       for (final DoctorModel doctor in specialization.doctors!) {
         allDoctors.add(doctor);
-        print('**************************${allDoctors[0].name!}');
       }
     }
 
     return null;
   }
 
-  ///get all doctors of specializations
   void getDoctorsById({required int specializationId}) {
     List<DoctorModel>? doctorsList = <DoctorModel>[];
 

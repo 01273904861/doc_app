@@ -3,7 +3,7 @@ import 'package:appoment_app/core/routings/routes.dart';
 import 'package:appoment_app/features/home/data/models/get_specialization_model.dart';
 import 'package:appoment_app/features/home/ui/views/doctor_details_screen.dart';
 import 'package:appoment_app/features/home/ui/views/home_screen.dart';
-import 'package:appoment_app/features/home/logic/home_cubit.dart';
+import 'package:appoment_app/features/home/ui/views/make_appointment_details_screen.dart';
 import 'package:appoment_app/features/home/ui/views/recommendation_doctors_screen.dart';
 import 'package:appoment_app/features/login/logic/cubit/login_cubit.dart';
 import 'package:appoment_app/features/login/login_screen.dart';
@@ -37,11 +37,7 @@ class AppRouter {
         });
       case Routes.homeView:
         return MaterialPageRoute(builder: (_) {
-          return BlocProvider(
-            create: (BuildContext context) =>
-                HomeCubit(getIt())..emitGetSpecialization(),
-            child: const HomeView(),
-          );
+          return const HomeView();
         });
       case Routes.recommendatioDoctorsScreen:
         return MaterialPageRoute(builder: (_) {
@@ -51,7 +47,13 @@ class AppRouter {
         });
       case Routes.doctorDetailsScreen:
         return MaterialPageRoute(builder: (_) {
-          return  DoctorDetailsScreen(doctorModel: settings.arguments as DoctorModel,);
+          return DoctorDetailsScreen(
+            doctorModel: settings.arguments! as DoctorModel,
+          );
+        });
+      case Routes.makeAppointmentDetailsScreen:
+        return MaterialPageRoute(builder: (_) {
+          return const MakeAppointmentDetailsScreen();
         });
       default:
         return null;

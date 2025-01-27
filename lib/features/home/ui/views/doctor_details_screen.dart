@@ -1,4 +1,6 @@
+import 'package:appoment_app/core/helper/extension.dart';
 import 'package:appoment_app/core/helper/spacing.dart';
+import 'package:appoment_app/core/routings/routes.dart';
 import 'package:appoment_app/core/theming/app_textstyles.dart';
 import 'package:appoment_app/core/widgets/app_button.dart';
 import 'package:appoment_app/features/home/data/models/get_specialization_model.dart';
@@ -60,10 +62,13 @@ class DoctorDetailsScreen extends StatelessWidget {
                           makeAppointmentRequestModel:
                               MakeAppointmentRequestModel(
                                   doctor_id: doctorModel.id,
-                                  start_time: 'start_time',
+                                  start_time: '2025-10-10 14:00',
                                   notes: 'notes'));
+                      context.pushNamed(Routes.makeAppointmentDetailsScreen);
                     },
                   ),
+
+             
                 ],
               ),
               verticalSpace(50),
