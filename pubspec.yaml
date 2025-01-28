@@ -83,6 +83,7 @@ dependencies:
   flutter_secure_storage: ^4.2.1
   shimmer: ^3.0.0
   skeletonizer: ^1.4.3
+  easy_stepper: ^0.8.5+1
 dev_dependencies:
   #Automatically generate code for converting
   #to and from JSON by annotating Dart classes

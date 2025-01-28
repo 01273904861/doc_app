@@ -1,6 +1,7 @@
 import 'package:appoment_app/core/di/dependency_injection.dart';
 import 'package:appoment_app/core/routings/routes.dart';
 import 'package:appoment_app/features/home/data/models/get_specialization_model.dart';
+import 'package:appoment_app/features/home/logic/make_appointment_cubit.dart';
 import 'package:appoment_app/features/home/ui/views/doctor_details_screen.dart';
 import 'package:appoment_app/features/home/ui/views/home_screen.dart';
 import 'package:appoment_app/features/home/ui/views/make_appointment_details_screen.dart';
@@ -53,7 +54,12 @@ class AppRouter {
         });
       case Routes.makeAppointmentDetailsScreen:
         return MaterialPageRoute(builder: (_) {
-          return const MakeAppointmentDetailsScreen();
+          return BlocProvider(
+            create: (BuildContext context) => MakeAppointmentCubit(),
+            child: MakeAppointmentDetailsScreen(
+              doctorModel: settings.arguments! as DoctorModel,
+            ),
+          );
         });
       default:
         return null;

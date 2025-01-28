@@ -20,4 +20,7 @@ class HomeStates<T> with _$HomeStates<T> {
       MakeAppointmentSucces<T>;
   const factory HomeStates.makeAppointmentFailure({required ErrorHandler e}) =
       MakeAppointmentFailure;
+
+
+ 
 }

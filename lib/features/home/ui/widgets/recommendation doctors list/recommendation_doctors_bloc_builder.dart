@@ -5,33 +5,33 @@ import 'package:appoment_app/features/home/ui/widgets/recommendation%20doctors%2
 import 'package:appoment_app/features/home/data/models/get_specialization_model.dart';
 import 'package:appoment_app/features/home/logic/home_cubit.dart';
 import 'package:appoment_app/features/home/ui/widgets/recommendation%20doctors%20list/recommendations_doctor_listview.dart';
-import 'package:appoment_app/features/home/ui/widgets/sections_head_and_see_all.dart';
+import 'package:appoment_app/features/home/ui/widgets/section_text1_and_text2.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class RecommendationDoctorsBlocBuilder extends StatelessWidget {
-   RecommendationDoctorsBlocBuilder({super.key});
+  const RecommendationDoctorsBlocBuilder({super.key});
   @override
   Widget build(BuildContext context) {
-   final List<DoctorModel?> allDoctors = BlocProvider.of<HomeCubit>(context).allDoctors;
-
+    final List<DoctorModel?> allDoctors =
+        BlocProvider.of<HomeCubit>(context).allDoctors;
 
     return Expanded(
       child: Column(
         children: <Widget>[
           GestureDetector(
             onTap: () {
-              context.pushNamed(Routes.recommendatioDoctorsScreen ,  args: allDoctors);
+              context.pushNamed(Routes.recommendatioDoctorsScreen,
+                  args: allDoctors);
             },
-            child: const SectionsHeaderAndSeeAll(
-              title: 'Recommendation Doctor',
+            child: const SectionsTex1AndTex2(
+              text2: 'see all',
+              text1: 'Recommendation Doctor',
             ),
           ),
           BlocBuilder<HomeCubit, HomeStates>(
               buildWhen: (HomeStates previous, HomeStates current) =>
-                  current is DoctorsFailure ||
-                 
-                  current is DoctorsSuccess,
+                  current is DoctorsFailure || current is DoctorsSuccess,
               builder: (BuildContext context, HomeStates states) {
                 return states.maybeWhen(
                     doctorsFailure: (String errorMessage) =>
@@ -39,9 +39,10 @@ class RecommendationDoctorsBlocBuilder extends StatelessWidget {
                     specializationLoading: () =>
                         const RecommendationDoctorsShimmer(),
                     doctorsSuccess: (List<DoctorModel?>? doctorsList) =>
-                      
                         setUpSuccess(doctorsList),
-                    orElse: () => const Center(child: Text('empty list'),));
+                    orElse: () => const Center(
+                          child: Text('empty list'),
+                        ));
               })
         ],
       ),

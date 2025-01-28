@@ -3,7 +3,7 @@ import 'package:appoment_app/core/networking/api_error_handler.dart';
 import 'package:appoment_app/features/home/ui/widgets/doctors%20speciality%20list/doctors_speciality_shimmer.dart';
 import 'package:appoment_app/features/home/logic/home_cubit.dart';
 import 'package:appoment_app/features/home/ui/widgets/recommendation%20doctors%20list/recommendation_doctors_shimmer.dart.dart';
-import 'package:appoment_app/features/home/ui/widgets/sections_head_and_see_all.dart';
+import 'package:appoment_app/features/home/ui/widgets/section_text1_and_text2.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -20,8 +20,9 @@ class DoctorsSpecialityBlocBuilder extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: <Widget>[
-        const SectionsHeaderAndSeeAll(
-          title: 'Doctor Speciality',
+        const SectionsTex1AndTex2(
+          text2: 'see all',
+          text1: 'Doctor Speciality',
         ),
         BlocBuilder<HomeCubit, HomeStates>(
           buildWhen: (HomeStates previous, HomeStates current) =>

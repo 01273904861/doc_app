@@ -7,7 +7,7 @@ import 'package:appoment_app/features/home/data/models/get_specialization_model.
 import 'package:appoment_app/features/home/data/models/make_appointment_request_model.dart';
 import 'package:appoment_app/features/home/logic/home_cubit.dart';
 import 'package:appoment_app/features/home/ui/widgets/recommendation%20doctors%20list/doctor_details_item.dart';
-import 'package:appoment_app/features/home/ui/widgets/recommendation%20doctors%20list/header_and_content_widget.dart';
+import 'package:appoment_app/features/home/ui/widgets/header_and_content_widget.dart';
 // ignore: unused_import
 import 'package:appoment_app/features/home/ui/widgets/recommendation%20doctors%20list/recommendation_doctors_listview_item.dart';
 import 'package:flutter/material.dart';
@@ -58,13 +58,8 @@ class DoctorDetailsScreen extends StatelessWidget {
                   AppButton(
                     title: 'Make An Appointment',
                     onPressed: () {
-                      BlocProvider.of<HomeCubit>(context).emitMakeAppointment(
-                          makeAppointmentRequestModel:
-                              MakeAppointmentRequestModel(
-                                  doctor_id: doctorModel.id,
-                                  start_time: '2025-10-10 14:00',
-                                  notes: 'notes'));
-                      context.pushNamed(Routes.makeAppointmentDetailsScreen);
+                    
+                      context.pushNamed(Routes.makeAppointmentDetailsScreen, args: doctorModel);
                     },
                   ),
 

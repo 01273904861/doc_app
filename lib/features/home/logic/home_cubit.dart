@@ -4,9 +4,11 @@ import 'package:appoment_app/core/networking/api_result.dart';
 import 'package:appoment_app/features/home/data/models/get_specialization_model.dart';
 import 'package:appoment_app/features/home/data/models/make_appointment_request_model.dart';
 import 'package:appoment_app/features/home/data/models/make_appointment_response_model.dart';
+import 'package:appoment_app/features/home/data/models/seven_days_model.dart';
 import 'package:appoment_app/features/home/data/repos/home_repo.dart';
 import 'package:bloc/bloc.dart';
 import 'package:flutter/foundation.dart';
+import 'package:flutter/material.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 part 'home_cubit.freezed.dart';
 part 'home_states.dart';
@@ -37,6 +39,7 @@ class HomeCubit extends Cubit<HomeStates> {
       },
     );
   }
+
   ///get all doctors of specializations
 
   List<DoctorModel>? getAllSpecializationsDoctors() {
@@ -74,9 +77,12 @@ class HomeCubit extends Cubit<HomeStates> {
         makeAppointmentRequestModel: makeAppointmentRequestModel);
 
     res.when(success: (succesRes) {
+  
       emit(MakeAppointmentSucces(succesRes));
     }, failure: (ErrorHandler failureRes) {
       emit(MakeAppointmentFailure(e: ErrorHandler.handle(failureRes)));
     });
   }
-}
+
+ 
+} 
