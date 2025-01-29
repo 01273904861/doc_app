@@ -4,14 +4,11 @@ import 'package:appoment_app/core/routings/routes.dart';
 import 'package:appoment_app/core/theming/app_textstyles.dart';
 import 'package:appoment_app/core/widgets/app_button.dart';
 import 'package:appoment_app/features/home/data/models/get_specialization_model.dart';
-import 'package:appoment_app/features/home/data/models/make_appointment_request_model.dart';
-import 'package:appoment_app/features/home/logic/home_cubit.dart';
 import 'package:appoment_app/features/home/ui/widgets/recommendation%20doctors%20list/doctor_details_item.dart';
 import 'package:appoment_app/features/home/ui/widgets/header_and_content_widget.dart';
 // ignore: unused_import
 import 'package:appoment_app/features/home/ui/widgets/recommendation%20doctors%20list/recommendation_doctors_listview_item.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class DoctorDetailsScreen extends StatelessWidget {

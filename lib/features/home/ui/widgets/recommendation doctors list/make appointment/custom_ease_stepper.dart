@@ -1,7 +1,6 @@
 import 'package:appoment_app/core/theming/app_colors.dart';
 import 'package:appoment_app/core/theming/app_textstyles.dart';
 import 'package:easy_stepper/easy_stepper.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -16,6 +15,7 @@ class _CustomEaseStepperState extends State<CustomEaseStepper> {
   @override
   Widget build(BuildContext context) {
     return EasyStepper(
+        
       lineStyle: LineStyle(
         defaultLineColor: AppColors.lighterGrey,
         lineType: LineType.normal,
@@ -31,6 +31,7 @@ class _CustomEaseStepperState extends State<CustomEaseStepper> {
 
   EasyStep customEasyStep({required String title, required String number ,required bool isActive}) {
     return EasyStep(
+  
         customTitle: Text(
           title,
           textAlign: TextAlign.center,
