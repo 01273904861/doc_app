@@ -4,6 +4,7 @@ import 'package:appoment_app/core/helper/extension.dart';
 import 'package:appoment_app/core/helper/shared_pref_helper.dart';
 import 'package:appoment_app/core/networking/dio_factory.dart';
 import 'package:appoment_app/features/home/data/models/get_specialization_model.dart';
+import 'package:appoment_app/features/login/data/models/log_in_request_body_model.dart';
 
 class AppFunctions {
   String? checkEmailValidation(value) {
@@ -42,5 +43,15 @@ class AppFunctions {
     //         doctor.name?.toLowerCase().startsWith(doctorName.toLowerCase()) ??
     //         false)
     //     .toList();
+  }
+
+ static  Future<void> saveUserData(String email, password) async {
+    await SharedPrefHelper.setData(SharedPrefKeys.emailKey, email);
+    await SharedPrefHelper.setSecuredData(SharedPrefKeys.passwordKey, password);
+  }
+  static Future <LoginRequestBodyModel>getUserData()async{
+   final email =await SharedPrefHelper.getString(SharedPrefKeys.emailKey);
+   final password =await SharedPrefHelper.getSecuredData(SharedPrefKeys.passwordKey);
+    return LoginRequestBodyModel(email: email, password: password);
   }
 }

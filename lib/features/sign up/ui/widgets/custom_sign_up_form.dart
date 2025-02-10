@@ -18,8 +18,8 @@ class CustomSignUpForm extends StatefulWidget {
 }
 
 class _CustomSignUpFormState extends State<CustomSignUpForm> {
-  bool isObsecure = false;
-  bool isObsecure2 = false;
+  bool isObsecure = true;
+  bool isObsecure2 = true;
 
   bool hasLowerCase = false;
   bool hasUpperCase = false;

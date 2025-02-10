@@ -77,7 +77,7 @@ class CustomTextField extends StatelessWidget {
   }
 
   String? defaultCheckValidation(value) {
-    if (value == null || value?.isEmpty ?? true) {
+    if (value?.isNullOrEmpty ) {
       return 'this field is required';
     } else {
       return null;

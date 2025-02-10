@@ -31,11 +31,11 @@ class LogInScreen extends StatelessWidget {
                   'We\'re excited to have you back, can\'t wait to see what you\'ve been up to since you last logged in.',
                   style: AppTextstyles.font14GreyRegular,
                 ),
-                verticalSpace(30),
+                verticalSpace(25),
                 const CustomLogInForm(),
-                verticalSpace(30),
+                verticalSpace(25),
                 const TermsAndConditionsText(),
-                verticalSpace(50),
+                verticalSpace(40),
                 Center(
                     child: AlreadyHaveanAcountAndSignUpText(
                   onTap: () {

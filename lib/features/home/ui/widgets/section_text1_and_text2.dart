@@ -2,9 +2,11 @@ import 'package:appoment_app/core/theming/app_textstyles.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-class SectionsHeaderAndSeeAll extends StatelessWidget {
-  const SectionsHeaderAndSeeAll({super.key, required this.title});
-  final String title;
+class SectionsTex1AndTex2 extends StatelessWidget {
+  const SectionsTex1AndTex2(
+      {super.key, required this.text1, required this.text2});
+  final String text1;
+  final String text2;
 
   @override
   Widget build(BuildContext context) {
@@ -12,12 +14,12 @@ class SectionsHeaderAndSeeAll extends StatelessWidget {
       height: 50.h,
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
+        children: <Widget>[
           Text(
-            title,
+            text1,
             style: AppTextstyles.font18BlackRegular,
           ),
-          Text('See All', style: AppTextstyles.font12BlueRegular)
+          Text(text2, style: AppTextstyles.font12BlueRegular)
         ],
       ),
     );

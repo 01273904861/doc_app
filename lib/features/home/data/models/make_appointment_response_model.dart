@@ -4,7 +4,17 @@ part 'make_appointment_response_model.g.dart';
 
 @JsonSerializable()
 class MakeAppointmentResponseModel {
-  const MakeAppointmentResponseModel(
+final String? message;
+final MakeAppointmentResponseDataModel? data;
+
+  MakeAppointmentResponseModel({this.message, this.data});
+
+  factory MakeAppointmentResponseModel.fromJson(Map<String, dynamic> json) =>
+      _$MakeAppointmentResponseModelFromJson(json);
+}
+@JsonSerializable()
+class MakeAppointmentResponseDataModel {
+  const MakeAppointmentResponseDataModel(
       {required this.id,
       required this.doctor,
       required this.patient,
@@ -13,8 +23,8 @@ class MakeAppointmentResponseModel {
       required this.status,
       required this.notes,
       required this.appointment_price});
-  factory MakeAppointmentResponseModel.fromJson(Map<String, dynamic> json) =>
-      _$MakeAppointmentResponseModelFromJson(json);
+  factory MakeAppointmentResponseDataModel.fromJson(Map<String, dynamic> json) =>
+      _$MakeAppointmentResponseDataModelFromJson(json);
 
   final int? id;
   final DoctorModel? doctor;
@@ -22,8 +32,8 @@ class MakeAppointmentResponseModel {
   final String? appointment_time,
       appointment_end_time,
       status,
-      notes,
-      appointment_price;
+      notes;
+  final double? appointment_price;
 }
 
 @JsonSerializable()
@@ -41,5 +51,5 @@ class PatientModel {
   final String? name;
   final String? email;
   final String? phone;
-  final int? gender;
+  final String? gender;
 }

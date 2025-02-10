@@ -8,12 +8,14 @@ import 'package:retrofit/retrofit.dart';
 part 'home_api_service.g.dart';
 
 @RestApi(baseUrl: ApiConstants.baseUrl)
-abstract class HomeApiService {
+abstract class HomeApiService { 
   factory HomeApiService(Dio dio) = _HomeApiService;
 
   @GET(HomeApiConstants.getSpecializations)
   Future<GetAllSpecializationsModel> getSpecialization();
 
+
+  @POST(HomeApiConstants.makeAppointment)
   Future<MakeAppointmentResponseModel> makeAppointment(
       @Body() MakeAppointmentRequestModel makeAppointmentRequestModel);
 }
