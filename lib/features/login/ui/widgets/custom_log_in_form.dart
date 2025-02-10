@@ -19,7 +19,7 @@ class CustomLogInForm extends StatefulWidget {
 }
 
 class _CustomLogInFormState extends State<CustomLogInForm> {
-  bool isObsecure = false;
+  bool isObsecure = true;
   bool hasLowerCase = false;
   bool hasUpperCase = false;
   bool hasDigits = false;

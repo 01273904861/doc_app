@@ -32,10 +32,10 @@ class SevenDaysOfweek {
         DateTime.now().year == newDate.year) {
       startHour = newDate.hour + 2;
     } else {
-      startHour = 6;
+      startHour = 14;
     }
 
-    for (int i = startHour; i < 14; i++) {
+    for (int i = startHour; i <= 20; i++) {
       final DateTime tempTime =
           DateTime(newDate.year, newDate.month, newDate.day, i);
       final String fullDate =

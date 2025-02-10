@@ -16,13 +16,13 @@ class HourWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-        color: isSelected ? AppColors.mainBlue : AppColors.lightGrey,
+        color: isSelected ? AppColors.mainBlue : AppColors.morelightGrey,
         borderRadius: BorderRadius.circular(10),
       ),
       child: Center(
         child: Text(
           hour, // Display the actual hour
-          style: AppTextstyles.font16WhiteMeduim,
+          style: isSelected ? AppTextstyles.font16WhiteMeduim : AppTextstyles.font16WhiteMeduim.copyWith(color: AppColors.lighterGrey),
         ),
       ),
     );

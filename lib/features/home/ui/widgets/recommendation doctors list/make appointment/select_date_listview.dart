@@ -51,13 +51,13 @@ class _SelectDateListviewState extends State<SelectDateListview> {
                 .emitSelectedDay(daysList[i]);
           },
           child: Container(
-            height: 62.h,
-            width: 55.h,
+            height: isSelected ? 66.h : 62.h,
+            width: isSelected ? 56.w : 55.h,
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(12.r),
               color: isSelected
                   ? AppColors.mainBlue // Highlight for selected date
-                  : AppColors.lightGrey,
+                  : AppColors.morelightGrey,
               border: Border.all(
                 color: isSelected ? Colors.white : Colors.transparent,
                 width: 2,
@@ -68,16 +68,23 @@ class _SelectDateListviewState extends State<SelectDateListview> {
               children: <Widget>[
                 Text(
                  daysList[i].name,
-                  style: AppTextstyles.font16WhiteSemiBold.copyWith(
+                  style: isSelected ?  AppTextstyles.font16WhiteSemiBold.copyWith(
                     fontSize: 14.sp,
                     color: Colors.white,
+                  )  : AppTextstyles.font16WhiteSemiBold.copyWith(
+                    fontSize: 14.sp,
+                    color: AppColors.lighterGrey,
                   ),
                 ),
+            
                 Text(
-                  daysList[i].number,
-                  style: AppTextstyles.font16WhiteSemiBold.copyWith(
+                 daysList[i].number,
+                  style: isSelected ?  AppTextstyles.font16WhiteSemiBold.copyWith(
                     fontSize: 14.sp,
                     color: Colors.white,
+                  )  : AppTextstyles.font16WhiteSemiBold.copyWith(
+                    fontSize: 14.sp,
+                    color: AppColors.lighterGrey,
                   ),
                 ),
               ],

@@ -1,8 +1,8 @@
 import 'package:appoment_app/core/helper/spacing.dart';
-import 'package:appoment_app/core/theming/app_textstyles.dart';
 import 'package:appoment_app/features/home/data/models/get_specialization_model.dart';
 import 'package:appoment_app/features/home/data/models/seven_days_model.dart';
 import 'package:appoment_app/features/home/logic/make_appointment_cubit.dart';
+import 'package:appoment_app/features/home/ui/widgets/recommendation%20doctors%20list/make%20appointment/custom_header.dart';
 import 'package:appoment_app/features/home/ui/widgets/recommendation%20doctors%20list/make%20appointment/select_availble_time_bloc_builder.dart';
 import 'package:appoment_app/features/home/ui/widgets/recommendation%20doctors%20list/make%20appointment/select_date_listview.dart';
 import 'package:appoment_app/features/home/ui/widgets/section_text1_and_text2.dart';
@@ -34,19 +34,15 @@ class _DateAndTimeWidgetState extends State<DateAndTimeWidget> {
       children: <Widget>[
         const SectionsTex1AndTex2(text1: 'title', text2: 'Set Manual'),
         SizedBox(
-          height: 63.h,
+          height: 70.h,
           child: SelectDateListview(
             sevenDaysOfWeek: sevenDaysOfweek,
           ),
         ),
         verticalSpace(20),
-        Row(
+        const Row(
           children: <Widget>[
-            Text(
-              'Available time',
-              style: AppTextstyles.font16WhiteSemiBold
-                  .copyWith(color: Colors.black),
-            ),
+            CustomHeader(header: 'Available time'),
           ],
         ),
         SelectAvailbaleTimeBlocBuilder(docotrModel: widget.doctrModel)

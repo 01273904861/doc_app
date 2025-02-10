@@ -1,6 +1,5 @@
 import 'package:appoment_app/core/routings/app_router.dart';
 import 'package:appoment_app/core/routings/routes.dart';
-import 'package:appoment_app/main.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:appoment_app/features/home/logic/home_cubit.dart';

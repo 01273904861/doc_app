@@ -149,21 +149,12 @@ class __$$SpecializationInitialImplCopyWithImpl<T, $Res>
 
 /// @nodoc
 
-class _$SpecializationInitialImpl<T>
-    with DiagnosticableTreeMixin
-    implements _SpecializationInitial<T> {
+class _$SpecializationInitialImpl<T> implements _SpecializationInitial<T> {
   const _$SpecializationInitialImpl();
 
   @override
-  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+  String toString() {
     return 'HomeStates<$T>.specializationInitial()';
-  }
-
-  @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-    super.debugFillProperties(properties);
-    properties.add(
-        DiagnosticsProperty('type', 'HomeStates<$T>.specializationInitial'));
   }
 
   @override
@@ -315,21 +306,12 @@ class __$$SpecializationLoadingImplCopyWithImpl<T, $Res>
 
 /// @nodoc
 
-class _$SpecializationLoadingImpl<T>
-    with DiagnosticableTreeMixin
-    implements SpecializationLoading<T> {
+class _$SpecializationLoadingImpl<T> implements SpecializationLoading<T> {
   const _$SpecializationLoadingImpl();
 
   @override
-  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+  String toString() {
     return 'HomeStates<$T>.specializationLoading()';
-  }
-
-  @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-    super.debugFillProperties(properties);
-    properties.add(
-        DiagnosticsProperty('type', 'HomeStates<$T>.specializationLoading'));
   }
 
   @override
@@ -495,25 +477,15 @@ class __$$SpecializationSuccessImplCopyWithImpl<T, $Res>
 
 /// @nodoc
 
-class _$SpecializationSuccessImpl<T>
-    with DiagnosticableTreeMixin
-    implements SpecializationSuccess<T> {
+class _$SpecializationSuccessImpl<T> implements SpecializationSuccess<T> {
   const _$SpecializationSuccessImpl(this.data);
 
   @override
   final T data;
 
   @override
-  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+  String toString() {
     return 'HomeStates<$T>.specializationSuccess(data: $data)';
-  }
-
-  @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-    super.debugFillProperties(properties);
-    properties
-      ..add(DiagnosticsProperty('type', 'HomeStates<$T>.specializationSuccess'))
-      ..add(DiagnosticsProperty('data', data));
   }
 
   @override
@@ -699,25 +671,15 @@ class __$$SpecializationFailureImplCopyWithImpl<T, $Res>
 
 /// @nodoc
 
-class _$SpecializationFailureImpl<T>
-    with DiagnosticableTreeMixin
-    implements SpecializationFailure<T> {
+class _$SpecializationFailureImpl<T> implements SpecializationFailure<T> {
   const _$SpecializationFailureImpl({required this.errorHandler});
 
   @override
   final ErrorHandler errorHandler;
 
   @override
-  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+  String toString() {
     return 'HomeStates<$T>.specializationFailure(errorHandler: $errorHandler)';
-  }
-
-  @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-    super.debugFillProperties(properties);
-    properties
-      ..add(DiagnosticsProperty('type', 'HomeStates<$T>.specializationFailure'))
-      ..add(DiagnosticsProperty('errorHandler', errorHandler));
   }
 
   @override
@@ -902,9 +864,7 @@ class __$$DoctorsSuccessImplCopyWithImpl<T, $Res>
 
 /// @nodoc
 
-class _$DoctorsSuccessImpl<T>
-    with DiagnosticableTreeMixin
-    implements DoctorsSuccess<T> {
+class _$DoctorsSuccessImpl<T> implements DoctorsSuccess<T> {
   const _$DoctorsSuccessImpl(final List<DoctorModel?>? doctors)
       : _doctors = doctors;
 
@@ -919,16 +879,8 @@ class _$DoctorsSuccessImpl<T>
   }
 
   @override
-  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+  String toString() {
     return 'HomeStates<$T>.doctorsSuccess(doctors: $doctors)';
-  }
-
-  @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-    super.debugFillProperties(properties);
-    properties
-      ..add(DiagnosticsProperty('type', 'HomeStates<$T>.doctorsSuccess'))
-      ..add(DiagnosticsProperty('doctors', doctors));
   }
 
   @override
@@ -1112,25 +1064,15 @@ class __$$DoctorsFailureImplCopyWithImpl<T, $Res>
 
 /// @nodoc
 
-class _$DoctorsFailureImpl<T>
-    with DiagnosticableTreeMixin
-    implements DoctorsFailure<T> {
+class _$DoctorsFailureImpl<T> implements DoctorsFailure<T> {
   const _$DoctorsFailureImpl({required this.errorMessage});
 
   @override
   final String errorMessage;
 
   @override
-  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+  String toString() {
     return 'HomeStates<$T>.doctorsFailure(errorMessage: $errorMessage)';
-  }
-
-  @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-    super.debugFillProperties(properties);
-    properties
-      ..add(DiagnosticsProperty('type', 'HomeStates<$T>.doctorsFailure'))
-      ..add(DiagnosticsProperty('errorMessage', errorMessage));
   }
 
   @override
@@ -1302,21 +1244,12 @@ class __$$MakeAppointmentLoadingImplCopyWithImpl<T, $Res>
 
 /// @nodoc
 
-class _$MakeAppointmentLoadingImpl<T>
-    with DiagnosticableTreeMixin
-    implements MakeAppointmentLoading<T> {
+class _$MakeAppointmentLoadingImpl<T> implements MakeAppointmentLoading<T> {
   const _$MakeAppointmentLoadingImpl();
 
   @override
-  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+  String toString() {
     return 'HomeStates<$T>.makeAppointmentLoading()';
-  }
-
-  @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-    super.debugFillProperties(properties);
-    properties.add(
-        DiagnosticsProperty('type', 'HomeStates<$T>.makeAppointmentLoading'));
   }
 
   @override
@@ -1482,25 +1415,15 @@ class __$$MakeAppointmentSuccesImplCopyWithImpl<T, $Res>
 
 /// @nodoc
 
-class _$MakeAppointmentSuccesImpl<T>
-    with DiagnosticableTreeMixin
-    implements MakeAppointmentSucces<T> {
+class _$MakeAppointmentSuccesImpl<T> implements MakeAppointmentSucces<T> {
   const _$MakeAppointmentSuccesImpl(this.data);
 
   @override
   final T data;
 
   @override
-  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+  String toString() {
     return 'HomeStates<$T>.makeAppoinmentSucces(data: $data)';
-  }
-
-  @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-    super.debugFillProperties(properties);
-    properties
-      ..add(DiagnosticsProperty('type', 'HomeStates<$T>.makeAppoinmentSucces'))
-      ..add(DiagnosticsProperty('data', data));
   }
 
   @override
@@ -1686,26 +1609,15 @@ class __$$MakeAppointmentFailureImplCopyWithImpl<T, $Res>
 
 /// @nodoc
 
-class _$MakeAppointmentFailureImpl<T>
-    with DiagnosticableTreeMixin
-    implements MakeAppointmentFailure<T> {
+class _$MakeAppointmentFailureImpl<T> implements MakeAppointmentFailure<T> {
   const _$MakeAppointmentFailureImpl({required this.e});
 
   @override
   final ErrorHandler e;
 
   @override
-  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+  String toString() {
     return 'HomeStates<$T>.makeAppointmentFailure(e: $e)';
-  }
-
-  @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-    super.debugFillProperties(properties);
-    properties
-      ..add(
-          DiagnosticsProperty('type', 'HomeStates<$T>.makeAppointmentFailure'))
-      ..add(DiagnosticsProperty('e', e));
   }
 
   @override

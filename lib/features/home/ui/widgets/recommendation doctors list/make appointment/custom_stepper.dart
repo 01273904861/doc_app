@@ -1,3 +1,4 @@
+import 'package:appoment_app/core/helper/spacing.dart';
 import 'package:appoment_app/core/theming/app_colors.dart';
 import 'package:flutter/material.dart';
 
@@ -17,6 +18,7 @@ class CustomStepper extends StatelessWidget {
   Widget build(BuildContext context) {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+      // ignore: always_specify_types
       children: List.generate(steps.length, (int index) {
         final bool isActive = index == currentStep;
         final bool isCompleted = index < currentStep;
@@ -39,7 +41,7 @@ class CustomStepper extends StatelessWidget {
                   ),
                 ),
               ),
-              const SizedBox(height: 4),
+            verticalSpace(4),
               Text(
                 steps[index].title,
                 style: TextStyle(
