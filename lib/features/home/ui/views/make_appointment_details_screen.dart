@@ -1,8 +1,11 @@
+import 'package:appoment_app/core/helper/extension.dart';
 import 'package:appoment_app/core/helper/spacing.dart';
+import 'package:appoment_app/core/routings/routes.dart';
 import 'package:appoment_app/core/theming/app_textstyles.dart';
 import 'package:appoment_app/core/widgets/app_button.dart';
 import 'package:appoment_app/features/home/data/models/get_specialization_model.dart';
 import 'package:appoment_app/features/home/logic/payment_option_cubit.dart';
+import 'package:appoment_app/features/home/ui/widgets/recommendation%20doctors%20list/make%20appointment/custom_header.dart';
 import 'package:appoment_app/features/home/ui/widgets/recommendation%20doctors%20list/make%20appointment/custom_stepper.dart';
 import 'package:appoment_app/features/home/ui/widgets/recommendation%20doctors%20list/make%20appointment/date_and_time_widget.dart';
 import 'package:appoment_app/features/home/ui/widgets/recommendation%20doctors%20list/make%20appointment/payment_widget.dart';
@@ -65,14 +68,12 @@ class _MakeAppointmentDetailsScreenState
             steps[_activeStepIndex].content,
             const Spacer(),
             AppButton(
-              title: _activeStepIndex == steps.length - 1
-                  ? 'book now'
-                  : 'continue',
+              title: 'continue',
               onPressed: () {
                 setState(() {
-                  if (_activeStepIndex < steps.length - 1) {
-                    _activeStepIndex++;
-                  }
+                  _activeStepIndex < steps.length - 1
+                      ? _activeStepIndex++
+                      : makeAppointmentBottomSheet(context);
                 });
               },
             ),
@@ -81,6 +82,62 @@ class _MakeAppointmentDetailsScreenState
         ),
       ),
     );
+  }
+
+  Future<dynamic> makeAppointmentBottomSheet(BuildContext context) {
+    return showModalBottomSheet(
+        context: context,
+        builder: (context) {
+          return SizedBox(
+            height: 312.h,
+            width: double.infinity,
+            child: Padding(
+              padding: const EdgeInsets.all(20),
+              child: Column(
+                children: [
+                  const CustomHeader(header: 'payment info'),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      const Text('subtotal'),
+                      Text(widget.doctorModel.appointPrice.toString()),
+                    ],
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      const Text('tax'),
+                      Text('${widget.doctorModel.appointPrice! * .25}')
+                    ],
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text('payment total',
+                          style: AppTextstyles.font16WhiteSemiBold
+                              .copyWith(color: Colors.black)),
+                      Text(
+                          style: AppTextstyles.font16WhiteSemiBold
+                              .copyWith(color: Colors.black),
+                          '${widget.doctorModel.appointPrice! * .25 + widget.doctorModel.appointPrice!}')
+                    ],
+                  ),
+                  //make appbutton with totle book now and when click go to home screen
+                  const Spacer(),
+                  AppButton(
+                    title: 'book now',
+                    onPressed: () {
+                      context.pop();
+                      context.pushNamed(Routes.confirmedBookScreen,
+                          args: widget.doctorModel);
+                    },
+                  ),
+                  verticalSpace(30),
+                ],
+              ),
+            ),
+          );
+        });
   }
 
   List<StepData> stepList() {
@@ -95,12 +152,12 @@ class _MakeAppointmentDetailsScreenState
         title: 'Payment',
         content: BlocProvider(
           create: (context) => PaymentOptionCubit()..loadData(),
-          child: PaymentWidget(),
+          child: const PaymentWidget(),
         ),
       ),
       StepData(
         title: 'Summary',
-        content: Text('ddd'),
+        content: SummaryWidget(doctorModel: widget.doctorModel),
       ),
     ];
   }

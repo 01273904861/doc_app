@@ -29,12 +29,12 @@ class SevenDaysOfweek {
     int startHour;
     if (newDate.day == DateTime.now().day &&
         newDate.month == DateTime.now().month &&
-        DateTime.now().year == newDate.year) {
+        DateTime.now().year == newDate.year && DateTime.now().hour >= 12) {
       startHour = newDate.hour + 2;
     } else {
       startHour = 14;
     }
-
+      
     for (int i = startHour; i <= 20; i++) {
       final DateTime tempTime =
           DateTime(newDate.year, newDate.month, newDate.day, i);

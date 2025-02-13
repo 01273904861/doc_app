@@ -42,6 +42,8 @@ class DoctorDetailsItem extends StatelessWidget {
               style: AppTextstyles.font12LigtGreyRegular
                   .copyWith(fontWeight: AppFontWeightHelper.meduim),
             ),
+           
+         
           ],
         ),
       ],

@@ -30,24 +30,28 @@ class DoctorDetailsScreen extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
               DoctorDetailsItem(doctorModel: doctorModel),
-              verticalSpace(30),
+              verticalSpace(25),
               HeaderAndContentSection(
                 title: 'About me',
                 content:
                     'this is me ${doctorModel.name!} my degree is ${doctorModel.degree!} i live at ${doctorModel.city!.name}',
               ),
-              verticalSpace(20),
+              verticalSpace(15),
               HeaderAndContentSection(
                 title: 'Working Time',
                 content: '${doctorModel.startTime!} - ${doctorModel.endTime!}',
               ),
-              verticalSpace(20),
+              verticalSpace(15),
               HeaderAndContentSection(
                   title: 'Address', content: doctorModel.address!),
-              verticalSpace(20),
+              verticalSpace(15),
               HeaderAndContentSection(
                   title: 'Pengalaman Praktik',
                   content: doctorModel.city!.name!),
+                   verticalSpace(15),
+              HeaderAndContentSection(
+                  title: 'Appointment price ',
+                  content: doctorModel.appointPrice.toString()),
               const Spacer(),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -55,15 +59,13 @@ class DoctorDetailsScreen extends StatelessWidget {
                   AppButton(
                     title: 'Make An Appointment',
                     onPressed: () {
-                    
-                      context.pushNamed(Routes.makeAppointmentDetailsScreen, args: doctorModel);
+                      context.pushNamed(Routes.makeAppointmentDetailsScreen,
+                          args: doctorModel);
                     },
                   ),
-
-             
                 ],
               ),
-              verticalSpace(50),
+              verticalSpace(30),
             ]),
       ),
     );

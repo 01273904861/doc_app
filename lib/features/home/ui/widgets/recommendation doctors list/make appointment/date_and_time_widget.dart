@@ -25,6 +25,7 @@ class _DateAndTimeWidgetState extends State<DateAndTimeWidget> {
     context
         .read<MakeAppointmentCubit>()
         .emitSelectedDay(sevenDaysOfweek.dayList[0]);
+        
     super.initState();
   }
 

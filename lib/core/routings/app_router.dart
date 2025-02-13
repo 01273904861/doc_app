@@ -6,6 +6,7 @@ import 'package:appoment_app/features/home/ui/views/doctor_details_screen.dart';
 import 'package:appoment_app/features/home/ui/views/home_screen.dart';
 import 'package:appoment_app/features/home/ui/views/make_appointment_details_screen.dart';
 import 'package:appoment_app/features/home/ui/views/recommendation_doctors_screen.dart';
+import 'package:appoment_app/features/home/ui/widgets/recommendation%20doctors%20list/make%20appointment/confirmation_widget.dart';
 import 'package:appoment_app/features/login/logic/cubit/login_cubit.dart';
 import 'package:appoment_app/features/login/login_screen.dart';
 import 'package:appoment_app/features/onboarding/onboarding_screen.dart';
@@ -60,6 +61,10 @@ class AppRouter {
               doctorModel: settings.arguments! as DoctorModel,
             ),
           );
+        });
+      case Routes.confirmedBookScreen:
+        return MaterialPageRoute(builder: (_) {
+          return  ConfirmationWidget(doctorModel: settings.arguments! as DoctorModel,);
         });
       default:
         return null;

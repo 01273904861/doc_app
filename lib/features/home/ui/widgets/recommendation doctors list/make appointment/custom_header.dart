@@ -9,9 +9,13 @@ class CustomHeader extends StatelessWidget {
   final String header;
   @override
   Widget build(BuildContext context) {
-    return Text(
-      header,
-      style: AppTextstyles.font16WhiteSemiBold.copyWith(color: Colors.black),
+    return Row(
+      children: [
+        Text(
+          header,
+          style: AppTextstyles.font16WhiteSemiBold.copyWith(color: Colors.black),
+        ),
+      ],
     );
   }
 }

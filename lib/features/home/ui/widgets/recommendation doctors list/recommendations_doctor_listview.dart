@@ -1,3 +1,5 @@
+import 'package:appoment_app/core/helper/extension.dart';
+import 'package:appoment_app/core/routings/routes.dart';
 import 'package:appoment_app/features/home/data/models/get_specialization_model.dart';
 import 'package:appoment_app/features/home/ui/widgets/recommendation%20doctors%20list/recommendation_doctors_listview_item.dart';
 import 'package:flutter/material.dart';
@@ -10,8 +12,13 @@ class RecommendationsDoctorListView extends StatelessWidget {
     return Expanded(
       child: ListView.builder(
         itemCount: doctorsModel?.length,
-        itemBuilder: (context, index) => RecommendationDoctorsListviewItem(
-            doctorModel: doctorsModel?[index]),
+        itemBuilder: (context, index) => GestureDetector(
+          onTap: (){
+            context.pushNamed(Routes.doctorDetailsScreen , args: doctorsModel?[index]);
+          },
+          child: RecommendationDoctorsListviewItem(
+              doctorModel: doctorsModel?[index]),
+        ),
       ),
     );
     

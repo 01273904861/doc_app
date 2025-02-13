@@ -23,6 +23,7 @@ class CustomTextField extends StatelessWidget {
     this.controller,
     this.prefixIcon,
     this.onChanged,
+    this.maxLines
   });
 
   /// The text to be displayed as a hint in the text form field.
@@ -42,7 +43,7 @@ class CustomTextField extends StatelessWidget {
   final bool? obscureText;
   final double? borderRadius;
   final TextEditingController? controller;
-
+  final int? maxLines;
   @override
   Widget build(BuildContext context) {
     return TextField(
@@ -73,6 +74,7 @@ class CustomTextField extends StatelessWidget {
         fillColor: backgroundColor ?? AppColors.theMostlightGrey,
       ),
       obscureText: obscureText ?? false,
+      maxLines: maxLines,
     );
   }
 

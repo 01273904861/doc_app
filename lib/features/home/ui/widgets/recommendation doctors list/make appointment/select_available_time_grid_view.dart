@@ -1,10 +1,12 @@
 import 'package:appoment_app/core/theming/app_colors.dart';
+import 'package:appoment_app/core/theming/app_constants.dart';
 import 'package:appoment_app/core/theming/app_textstyles.dart';
 import 'package:appoment_app/features/home/data/models/get_specialization_model.dart';
 import 'package:appoment_app/features/home/data/models/seven_days_model.dart';
 import 'package:appoment_app/features/home/ui/widgets/recommendation%20doctors%20list/make%20appointment/hour_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:hive/hive.dart';
 
 class SelectAvailbaleTimeGridview extends StatefulWidget {
   const SelectAvailbaleTimeGridview({
@@ -23,7 +25,7 @@ class SelectAvailbaleTimeGridview extends StatefulWidget {
 class _SelectAvailbaleTimeGridviewState
     extends State<SelectAvailbaleTimeGridview> {
   int currentIndex = 0;
-
+  final Box _box = Hive.box(AppConstants.paymentBox);
   @override
   Widget build(BuildContext context) {
     final List<String> hours = widget.day.hours;
@@ -53,6 +55,8 @@ class _SelectAvailbaleTimeGridviewState
               onTap: () {
                 setState(() {
                   currentIndex = i;
+                  _box.put(AppConstants.paymentFullDate,
+                      widget.day.fullDate[i]); //save payment  time
                 });
               },
               child: HourWidget(
