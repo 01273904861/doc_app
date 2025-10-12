@@ -1,16 +1,25 @@
 # appoment_app
+This is a mobile application built with Flutter that allows users to book appointments with doctors across various specializations.
+Users can browse doctors, view their schedules, and book an available time slot easily.
 
-A new Flutter project.
+🚀 Features
 
-## Getting Started
+Browse doctors by specialization
 
-This project is a starting point for a Flutter application.
+View doctor profiles and available times
 
-A few resources to get you started if this is your first Flutter project:
+Book and manage appointments
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+Notifications and reminders
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+Firebase backend integration
+
+Modern and responsive UI
+<img width="343" height="742" alt="image" src="https://github.com/user-attachments/assets/596d626c-3db5-4020-9865-a0ec1520b908" />
+<img width="331" height="716" alt="image" src="https://github.com/user-attachments/assets/e173eb55-b588-4f65-9a6c-7ce0190fecc3" />
+<img width="364" height="743" alt="image" src="https://github.com/user-attachments/assets/b7bfeae4-ff6b-45be-ac3c-c861e8aceddd" />
+<img width="359" height="817" alt="image" src="https://github.com/user-attachments/assets/7746d422-1153-441e-b0ae-2f1c20a634cb" />
+
+
+
+
